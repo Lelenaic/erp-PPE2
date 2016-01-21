@@ -1,0 +1,2 @@
+Importer la base de données dans MySQL puis effacer le dossier _bdd_install
+
