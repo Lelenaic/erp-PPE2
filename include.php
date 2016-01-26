@@ -8,3 +8,5 @@ include('./_class/formelement.php');
 include('./_config/bdd.php');
 include('./_config/chemins.php');
 include('./_config/appli.php');
+// inclusion de la fonction qui affiche le menu
+include('./mod_kernel/menu.php');
