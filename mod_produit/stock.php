@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 function listeStock_route(){
@@ -15,18 +14,3 @@ function ajout(){
     echo '';
 }
 
-=======
-<?php 
-
-function index_route(){
-$requete=Connexion::table('SELECT *
-                         FROM stock');
-
-
-var_dump ($requete);
-}
-
-
-
-?>
->>>>>>> 525f7be3c5379c120b346c70a3c97ef9376d1f96
