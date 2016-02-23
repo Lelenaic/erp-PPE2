@@ -1,7 +1,9 @@
 <?php
 
-// Fichier d'arrivé par défaut pour s'identifier d'authentification
-function index_route(){
+
+function index_route()
+{
+
     $form = new FormBootstrap('Prospect');
     $form->addHidden('route', 'prospect_ajoutIndex_valid');
     $form->addText('nom',array(), 'Nom');
@@ -14,7 +16,10 @@ function index_route(){
     
      include(ROOT.'AdminLTE/form.php');
 }
+
 function valid_route(){
+
+
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
     $adresse=$_POST['adresse'];
@@ -26,6 +31,8 @@ function valid_route(){
             . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
     Connexion::exec($query);
     include(ROOT.'AdminLTE/alerte.php');
+
     
-     
 }
+
+
