@@ -1,10 +1,13 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> Equipe1
+=======
+>>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
 <!DOCTYPE html>
 <html>
     <head>
@@ -141,7 +144,11 @@
 
     </body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </html>
 =======
 </html>
 >>>>>>> Equipe1
+=======
+</html>
+>>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b

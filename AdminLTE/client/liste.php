@@ -94,6 +94,7 @@
                     <div class="row">
                         <div class="col-xs-12">
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
                                     <tr>
@@ -127,6 +128,8 @@
                                 </tbody>
                             </table>
 =======
+=======
+>>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
                                 <table id="example2" class="table table-bordered table-hover datatable">
                                     <thead>
                                         <tr>
@@ -161,7 +164,10 @@
                                         ?>
                                     </tbody>
                                 </table>
+<<<<<<< HEAD
 >>>>>>> Equipe1
+=======
+>>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
 
                         </div>
                     </div>
@@ -211,4 +217,3 @@
         </script>
     </body>
 </html>
-
