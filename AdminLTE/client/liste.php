@@ -1,19 +1,3 @@
-Skip to content
-This repository  
-Search
-Pull requests
-Issues
-Gist
- @clementdroillard
- Unwatch 18
-  Star 2
-  Fork 5 lelenaic/erp-PPE2
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs
-Branch: Equipe1 Find file Copy patherp-PPE2/AdminLTE/client/liste.php
-a75339b  25 minutes ago
-@TriggerTG TriggerTG mise a jour
-1 contributor
-RawBlameHistory    180 lines (166 sloc)  9.75 KB
 <!DOCTYPE html>
 <html>
     <head>
@@ -192,6 +176,3 @@ RawBlameHistory    180 lines (166 sloc)  9.75 KB
         </script>
     </body>
 </html>
-
-Status API Training Shop Blog About Pricing
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
