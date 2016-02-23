@@ -85,7 +85,8 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des Clients
+                        Liste des Prospects
+
                     </h1>
                 </section>
 
@@ -174,4 +175,3 @@
         </script>
     </body>
 </html>
-
