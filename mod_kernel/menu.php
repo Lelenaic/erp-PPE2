@@ -1,5 +1,4 @@
 <?php
-
 function menuUtilisateur($menuParent_id = null) {
     $utilisateur = $_SESSION['utilisateur'];
     $query = 'select * '
@@ -14,7 +13,6 @@ function menuUtilisateur($menuParent_id = null) {
     $query.=' order by um.ordre';
     
     $menus = Connexion::table($query);
-
     $html = '';
     foreach ($menus as $menu) {
         if($menu['route']==''){
