@@ -40,13 +40,12 @@ function updateProfile_route() {
 function modifierPassword_route() {
     $utilisateur = $_SESSION['utilisateur'];
     //creer un formulaire de modification
-
-
+    include(ROOT . 'AdminLTE/form.php');
     modifierPassword($utilisateur, $newPassword);
 }
 
 function modifierPassword($utilisateur, $newPassword) {
-    Connexion::query('update utilisateur set password="' . $newPassword . '" where login="' . $utilisateur['login'] . '"');
+    Connexion::exec('update utilisateur set password="' . $newPassword . '" where login="' . $utilisateur['login'] . '"');
 }
 
 function menuUtilisateur($menuParent_id = null) {
