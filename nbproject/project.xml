@@ -4,10 +4,14 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <name>erp-PPE2</name>
 =======
             <name>erp-PPE2 v1</name>
 >>>>>>> 9cc9fb69d29bbe381b76430a712d0ab3cf9a6a3b
+=======
+            <name>ERP</name>
+>>>>>>> 423d8f49fceb39c26b9403f85b5be5e9d110cbba
         </data>
     </configuration>
 </project>
