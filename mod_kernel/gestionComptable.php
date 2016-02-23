@@ -17,9 +17,39 @@ function formDevis_route(){
     $form->addSelect('utilisateurtype_id', $list, array(), 'Type');
     // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
     include(ROOT.'AdminLTE/form.php');    
+    
+    
+    
+    if(isset($_POST['bouton_pdf']))
+	{
+	require('fpdf.php');
+
+	$pdf = new FPDF();
+	$pdf->AddPage();
+	$pdf->SetFont('Arial');
+	$pdf->Cell(40,10,'IDENTIFICATION DU CHANTIER : ');
+	$pdf->Cell(100,10,$_POST['num_chantier']);
+	$pdf->Ln();
+	$pdf->Cell(40,10,'Nom du chantier : ');
+	$pdf->Cell(100,10,$_POST['nom_chantier']);
+	$pdf->Ln();
+
+
+
+
+	$pdf->Output();
+	}
+	else
+	{
+	?>
+
+	<form action="#ok" method="post">
+
+	<input type="submit" name="bouton_pdf">
+	</form> 
 }
 
-
+<?
 function menuUtilisateur($menuParent_id = null) {
     $utilisateur = $_SESSION['utilisateur'];
     $query = 'select * '
