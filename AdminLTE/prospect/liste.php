@@ -85,7 +85,12 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
+<<<<<<< HEAD
                         Liste des Clients
+=======
+                        Liste des Prospects
+
+>>>>>>> Equipe1
                     </h1>
                 </section>
 

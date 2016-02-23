@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> Equipe1
 // Fichier d'arrivé par défaut pour s'identifier d'authentification
 function index_route(){
     $form = new FormBootstrap('Client');

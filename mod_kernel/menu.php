@@ -39,4 +39,8 @@ function menuUtilisateur($menuParent_id = null) {
         
     }
     return $html;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Equipe1
