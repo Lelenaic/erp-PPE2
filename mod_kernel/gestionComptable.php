@@ -19,8 +19,8 @@ function formDevis_route(){
     include(ROOT.'AdminLTE/form.php');    
     
     
-    
-    if(isset($_POST['bouton_pdf']))
+/*
+   if(isset($_POST['bouton_pdf']))
 	{
 	require('fpdf.php');
 
@@ -46,10 +46,10 @@ function formDevis_route(){
 	<form action="#ok" method="post">
 
 	<input type="submit" name="bouton_pdf">
-	</form> 
+	</form> */
 }
 
-<?
+//<?
 function menuUtilisateur($menuParent_id = null) {
     $utilisateur = $_SESSION['utilisateur'];
     $query = 'select * '
