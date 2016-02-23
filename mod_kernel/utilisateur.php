@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 
+
+=======
+>>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
 function authentification_route() {
     $login = $_POST['login'];
     $password = $_POST['password'];
@@ -16,12 +20,10 @@ function authentification_route() {
 function index_route(){
     include(ROOT.'AdminLTE/index.php');
 }
-
 function logout_route() {
     session_destroy();
     header('Location:.');
 }
-
 function formProfile_route() {
     $utilisateur = $_SESSION['utilisateur'];
     $form = new FormBootstrap();
@@ -32,23 +34,26 @@ function formProfile_route() {
     $form->addPassword('newPassword2', array(), 'Confirmation du nouveau mot de passe');
     include(ROOT . 'AdminLTE/form.php');
 }
-
 function updateProfile_route() {
     //@TODO
 }
-
 function modifierPassword_route() {
     $utilisateur = $_SESSION['utilisateur'];
     //creer un formulaire de modification
-
-
     modifierPassword($utilisateur, $newPassword);
 }
-
 function modifierPassword($utilisateur, $newPassword) {
     Connexion::query('update utilisateur set password="' . $newPassword . '" where login="' . $utilisateur['login'] . '"');
 }
+<<<<<<< HEAD
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Equipe1
+=======
+>>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
 function formAjouter_route(){
     $form=new FormBootstrap();
     $form->addHidden('route','kernel_utilisateur_ajouter');
@@ -64,7 +69,6 @@ function formAjouter_route(){
     // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
     include(ROOT.'AdminLTE/form.php');    
 }
-
 function loginExiste($login){
     $result=Connexion::queryFirst('select count(*) as nb from utilisateur where login="'.$login.'"');
     return $result['nb']>0;    
