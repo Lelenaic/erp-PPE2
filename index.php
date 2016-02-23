@@ -15,6 +15,7 @@ if (isset($_REQUEST['route'])) {
     //route par defaut si non connecté
     $route = 'kernel_index_index';
 }
+
 // La route est définie par trois mots séparé d'un underscore. Elle est stockée dans la 
 // base de données dans la table 'menu'. 
 // Par exemple, sous le menu 'Gestion Utilisateurs' la route 'kernel_utilisateur_formAjouter' emmènera 

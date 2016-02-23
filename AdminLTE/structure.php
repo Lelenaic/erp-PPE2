@@ -85,17 +85,13 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <?php
-                        if (isset($titre)) {
-                            echo $titre;
-                        }
-                        ?>
+                        Tableau de bord
                     </h1>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <?php echo liste(); ?>
+                    <?php echo stock(); ?>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
