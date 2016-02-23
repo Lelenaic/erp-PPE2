@@ -1,3 +1,19 @@
+Skip to content
+This repository  
+Search
+Pull requests
+Issues
+Gist
+ @clementdroillard
+ Unwatch 18
+  Star 2
+  Fork 5 lelenaic/erp-PPE2
+ Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs
+Branch: Equipe1 Find file Copy patherp-PPE2/AdminLTE/client/liste.php
+a75339b  25 minutes ago
+@TriggerTG TriggerTG mise a jour
+1 contributor
+RawBlameHistory    180 lines (166 sloc)  9.75 KB
 <!DOCTYPE html>
 <html>
     <head>
@@ -93,38 +109,40 @@
                 <section class="content">
                     <div class="row">
                         <div class="col-xs-12">
-                            <table id="example2" class="table table-bordered table-hover datatable">
-                                <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>adresse</th>
-                                        <th>Code Postal</th>
-                                        <th>Ville</th>
-                                        <th>Mail</th>
-                                        <th>Téléphone</th>
-                                        
-                                    </tr>
-                                        
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($client as $u) {
-                                        echo '<tr>'
-                                            ,'<td>',$u['id'],'</td>'
-                                            ,'<td>',$u['nom'],'</td>'
-                                            ,'<td>',$u['prenom'],'</td>'
-                                            ,'<td>',$u['adresse'],'</td>'    
-                                            ,'<td>',$u['codePostal'],'</td>'    
-                                            ,'<td>',$u['ville'],'</td>'    
-                                            ,'<td>',$u['mail'],'</td>'   
-                                            ,'<td>',$u['numTelephone'],'</td>'    
-                                            ,'</tr>';
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                                <table id="example2" class="table table-bordered table-hover datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Nom</th>
+                                            <th>Prénom</th>
+                                            <th>adresse</th>
+                                            <th>Code Postal</th>
+                                            <th>Ville</th>
+                                            <th>Mail</th>
+                                            <th>Téléphone</th>
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($client as $u) {
+                                            echo '<tr>'
+                                                ,'<td>',$u['id'],'</td>'
+                                                ,'<td>',$u['nom'],'</td>'
+                                                ,'<td>',$u['prenom'],'</td>'
+                                                ,'<td>',$u['adresse'],'</td>'    
+                                                ,'<td>',$u['codePostal'],'</td>'    
+                                                ,'<td>',$u['ville'],'</td>'    
+                                                ,'<td>',$u['mail'],'</td>'   
+                                                ,'<td>',$u['numTelephone'],'</td>'
+                                                ,'<td>','<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-trash"></i></a>'
+                                                     //  ,'<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-pencil"></i></a>','</td>'   
+                                                ,'</tr>';
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
 
                         </div>
                     </div>
@@ -175,3 +193,5 @@
     </body>
 </html>
 
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
