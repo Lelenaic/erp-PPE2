@@ -92,10 +92,9 @@
                         ?>
                     </h1>
                 </section>
-
                 <!-- Main content -->
                 <section class="content">
-                    <?php echo ajout(); ?>
+                   <?php ajouterStock() ?>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
