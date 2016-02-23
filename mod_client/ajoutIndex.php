@@ -21,11 +21,18 @@ function valid_route(){
     $ville=$_POST['ville'];
     $mail=$_POST['mail'];
     $numTel=$_POST['numTel'];
-    $query='INSERT INTO client (nom, prenom, adresse, codePostal, ville, mail, numtelephone)'
-            . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
-    Connexion::exec($query);
-    include(ROOT.'AdminLTE/alerte.php');
     
-     
+    if ($nom!="" and $prenom!="" and $adresse!="" and $codePostal!="" and $ville!="" and $mail!="" and $numTel!="")
+        { 
+        $query='INSERT INTO client (nom, prenom, adresse, codePostal, ville, mail, numtelephone)'
+            . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
+        Connexion::exec($query);
+        include(ROOT.'AdminLTE/alerte.php');
+    }
+    else
+    {
+        echo 'Vous n\'avez pas remplit tout les critéres.' ;
+    }     
 }
+
 
