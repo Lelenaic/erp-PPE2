@@ -29,7 +29,10 @@ class Connexion {
     static public function table($query){
         return self::get()->query($query,PDO::FETCH_ASSOC)->fetchAll();        
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> e6184b2d23724c5b3652ae71495e528d3bd20545
     static public function queryFirst($query){
         $table=self::table($query);
         return $table[0];
