@@ -95,22 +95,42 @@
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
+                                    
                                     <tr>
-                                        <th>Login</th>
-                                        <th>Type</th>
+                                        <th>id archives</th>
+                                        <th>date</th> 
                                     </tr>
-                                        
-                                </thead>
-                                <tbody>
+                               <tbody>
                                     <?php
-                                    foreach ($utilisateurs as $u) {
+                                    foreach ($archives as $u) {
                                         echo '<tr>'
-                                            ,'<td>',$u['login'],'</td>'
-                                            ,'<td>',$u['utilisateurtype_id'],'</td>'
+                                            ,'<td>',$u['id'],'</td>'
+                                            ,'<td>',$u['date'],'</td>'
                                             ,'</tr>';
                                     }
                                     ?>
                                 </tbody>
+                                    <tr>
+                                        <th>nom client</th>                                        
+                                        <th>prenom client</th>                                        
+                                        <th>adresse client</th>                                        
+                                        <th>code postal client</th>                                        
+                                        <th>ville client</th>                                        
+                                        <th>entreprise client</th>                                        
+                                        <th>mail client</th>                                        
+                                        <th>numtelephone client</th>
+                                    </tr>
+<!--
+                                    <tr>
+                                        <th>libelle</th>
+                                        <th>numero</th>
+                                        <th>mail</th>
+                                        <th>ville</th>                                        
+                                        <th>code postal</th>
+                                        <th>adresse</th>
+                                    </tr>
+-->
+                                </thead>
                             </table>
 
                         </div>

@@ -1,12 +1,4 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> Equipe1
-=======
-
->>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
 // Fichier d'arrivé par défaut pour s'identifier d'authentification
 function index_route(){
     $form = new FormBootstrap('Client');
@@ -32,8 +24,5 @@ function valid_route(){
     $query='INSERT INTO client (nom, prenom, adresse, codePostal, ville, mail, numtelephone)'
             . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
     Connexion::exec($query);
-    include(ROOT.'AdminLTE/alerte.php');
-    
-     
+    include(ROOT.'AdminLTE/alerte.php');     
 }
-
