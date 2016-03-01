@@ -1,4 +1,5 @@
 <?php
+
 function authentification_route() {
     $login = $_POST['login'];
     $password = $_POST['password'];
