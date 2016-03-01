@@ -11,7 +11,6 @@ function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville=""
     $form->addText('ville',array(), 'Ville');
     $form->addEmail('mail', array(),'Adresse Mail');
     $form->addNumeric('numTel',array(),'Numéro de Téléphone');
-    
     $entreprises=  Connexion::table('select libelle from organisation');
     $list=array();
     foreach ($entreprises as $ut){
@@ -32,13 +31,7 @@ function valid_route()
     $ville=$_POST['ville'];
     $mail=$_POST['mail'];
     $numTel=$_POST['numTel'];
-    $query='INSERT INTO client (nom, prenom, adresse, codePostal, ville, mail, numtelephone)'
-            . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
-    Connexion::exec($query);
-    include(ROOT.'AdminLTE/alerte.php');
-    
     $organisation=$_POST['organisation'];
-
     $organisationId=Connexion::queryFirst("SELECT id FROM organisation where libelle='".$organisation."'");
     
     //vérification si aucune zone de texte est restée vide pour envoi à la BDD.
@@ -56,5 +49,4 @@ function valid_route()
     {
         index_route($nom, $prenom, $adresse, $codePostal, $ville, $mail, $numTel);
     }
-    include(ROOT.'AdminLTE/alerte.php');
 }

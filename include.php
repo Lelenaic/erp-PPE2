@@ -8,4 +8,3 @@ include('./mod_kernel/menu.php');
 include('./_config/bdd.php');
 include('./_config/chemins.php');
 include('./_config/appli.php');
-
