@@ -32,4 +32,3 @@ if(!is_callable($fonction.'_route')){
     exit('<p>La fonction <b>\''.$fonction.'_route(...)\'</b> du fichier <b>\'./mod_'.$module.'/'.$fichier.'.php\'</b> n\'est pas définie</p>');
 }
 call_user_func($fonction.'_route');
-
