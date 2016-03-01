@@ -1,7 +1,7 @@
 <?php
 
 function forum_route() {
-    include(ROOT.'AdminLTE/forum.php');
+    include(ROOT.'mod_gci/forum.php');
 }
 
 function messages_route(){
@@ -69,9 +69,6 @@ function messages(){
 
 
 
-function forum2_route(){
-    include(ROOT . 'mod_gci/forum.php');
-}
 
 function forum(){
     //$nomEntreprise=$_SESSION['nomEntreprise'];

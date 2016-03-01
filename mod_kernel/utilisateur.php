@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
 function authentification_route() {
     $login = $_POST['login'];
     $password = $_POST['password'];
@@ -45,15 +41,7 @@ function modifierPassword_route() {
 function modifierPassword($utilisateur, $newPassword) {
     Connexion::query('update utilisateur set password="' . $newPassword . '" where login="' . $utilisateur['login'] . '"');
 }
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> Equipe1
-=======
->>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
 function formAjouter_route(){
     $form=new FormBootstrap();
     $form->addHidden('route','kernel_utilisateur_ajouter');
