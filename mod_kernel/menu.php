@@ -37,14 +37,4 @@ function menuUtilisateur($menuParent_id = null) {
 
     }
     return $html;
-<<<<<<< HEAD
 }
-=======
-
-}
-
-
-
-
-
->>>>>>> origin/Equipe4_V5
