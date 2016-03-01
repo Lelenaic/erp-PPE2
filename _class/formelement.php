@@ -21,7 +21,7 @@ class FormElement {
 
     /**
      * tooltip
-     * @var type 
+     * @var type
      */
     private $_tooltip;
 
@@ -29,7 +29,7 @@ class FormElement {
      * Constructeur
      * @param string $tag
      * @param array $attributs
-     * @param string $label 
+     * @param string $label
      */
     function __construct($tag, $attributs = array(), $label = null, $tooltip = null) {
         $this->_tag = $tag;
@@ -57,7 +57,7 @@ class FormElement {
     /**
      * affecte un attribut
      * @param string $attr
-     * @param string $value 
+     * @param string $value
      */
     function __set($attr, $value) {
         $this->_attr[$attr] = $value;
@@ -172,7 +172,7 @@ class FormElement {
 
     /**
      * génère le label pour l'affichage
-     * @return string 
+     * @return string
      */
     function labelToString() {
         if ($this->_label != '') {
@@ -184,7 +184,7 @@ class FormElement {
 
     /**
      * génère l'affichage en mode table
-     * @return string 
+     * @return string
      */
     function table() {
         $html = '<tr><td>'

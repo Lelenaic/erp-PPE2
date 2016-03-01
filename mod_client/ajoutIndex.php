@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -7,6 +7,7 @@
 =======
 
 >>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
+*/
 // Fichier d'arrivé par défaut pour s'identifier d'authentification
 function index_route(){
     $form = new FormBootstrap('Client');
@@ -18,7 +19,7 @@ function index_route(){
     $form->addText('ville',array(), 'Ville');
     $form->addEmail('mail', array(),'Adresse Mail');
     $form->addNumeric('numTel',array(),'Numéro de Téléphone');
-    
+
      include(ROOT.'AdminLTE/form.php');
 }
 function valid_route(){
@@ -33,7 +34,7 @@ function valid_route(){
             . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
     Connexion::exec($query);
     include(ROOT.'AdminLTE/alerte.php');
-    
-     
+
+
 }
 

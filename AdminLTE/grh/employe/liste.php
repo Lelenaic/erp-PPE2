@@ -85,7 +85,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des Clients
+                        Liste des Employés
                     </h1>
                 </section>
 
@@ -99,16 +99,39 @@
                                         <th>id</th>
                                         <th>nom</th>
                                         <th>prénom</th>
+                                        <th>date de naissance</th>
+                                        <th>poste</th>
+                                        <th>numéro de téléphone</th>
+                                        <th>adresse mail</th>
+                                        <th>ville</th>
+                                        <th>code postal</th>
+                                        <th>adresse</th>
+                                        <th>sécurité sociale</th>
+                                        <th>entreprise</th>
+                                        <th>modification</th>
                                     </tr>
 
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($employe as $e) {
+                                    $size=sizeof($employe);
+                                    for ($i=0;$i<$size;$i++) {
+                                        $poste_id=Connexion::table('select libelle from poste where id='.$employe[$i]['poste_id'].'');
+                                        $entreprise_id=Connexion::table('select libelle from organisation where id='.$employe[$i]['entreprise_id'].'');
                                         echo '<tr>'
-                                            ,'<td>',$e['id'],'</td>'
-                                            ,'<td>',$e['nom'],'</td>'
-                                            ,'<td>',$e['prenom'],'</td>'
+                                            ,'<td>',$employe[$i]['id'],'</td>'
+                                            ,'<td>',$employe[$i]['nom'],'</td>'
+                                            ,'<td>',$employe[$i]['prenom'],'</td>'
+                                            ,'<td>',$employe[$i]['dateNaissance'],'</td>'
+                                            ,'<td>',$poste_id[0]['libelle'],'</td>'
+                                            ,'<td>',$employe[$i]['numero'],'</td>'
+                                            ,'<td>',$employe[$i]['mail'],'</td>'
+                                            ,'<td>',$employe[$i]['ville'],'</td>'
+                                            ,'<td>',$employe[$i]['codePostal'],'</td>'
+                                            ,'<td>',$employe[$i]['adresse'],'</td>'
+                                            ,'<td>',$employe[$i]['securiteSociale'],'</td>'
+                                            ,'<td>',$entreprise_id[0]['libelle'],'</td>'
+                                            ,'<td>','<a href="?route=grh_employe_formModifier">Modifier</a>','</td>'
                                             ,'</tr>';
                                             }
                                     ?>

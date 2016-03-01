@@ -11,7 +11,7 @@ function menuUtilisateur($menuParent_id = null) {
         $query.= ' and m.menuparent_id=' . $menuParent_id;
     }
     $query.=' order by um.ordre';
-    
+
     $menus = Connexion::table($query);
     $html = '';
     foreach ($menus as $menu) {
@@ -31,18 +31,16 @@ function menuUtilisateur($menuParent_id = null) {
                 <i class="fa '.$menu['icon'].'"></i> <span>'.$menu['label'].'</span>
                 </a>';
         if($enfants!=''){
-            $html.='<ul class="treeview-menu">'.$enfants.'</ul>';                    
+            $html.='<ul class="treeview-menu">'.$enfants.'</ul>';
         }
         $html.='</li>';
-        
+
     }
     return $html;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> Equipe1
-=======
-}
->>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
+
+
+
+
+

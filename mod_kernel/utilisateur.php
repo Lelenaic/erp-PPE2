@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
 function authentification_route() {
     $login = $_POST['login'];
     $password = $_POST['password'];
@@ -11,9 +7,9 @@ function authentification_route() {
     $utilisateur = Connexion::queryFirst($query);
     if ($utilisateur['password'] == $password) {
         unset($utilisateur['password']);    //on supprime la case password pour ajouter utilisateur en session
-        $_SESSION['utilisateur'] = $utilisateur;        
+        $_SESSION['utilisateur'] = $utilisateur;
     } else {
-        $_SESSION['messages'] = 'Erreur d\'identification';        
+        $_SESSION['messages'] = 'Erreur d\'identification';
     }
     header('Location:.');
 }
@@ -45,6 +41,7 @@ function modifierPassword_route() {
 function modifierPassword($utilisateur, $newPassword) {
     Connexion::query('update utilisateur set password="' . $newPassword . '" where login="' . $utilisateur['login'] . '"');
 }
+/*
 <<<<<<< HEAD
 
 <<<<<<< HEAD
@@ -54,6 +51,7 @@ function modifierPassword($utilisateur, $newPassword) {
 >>>>>>> Equipe1
 =======
 >>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
+*/
 function formAjouter_route(){
     $form=new FormBootstrap();
     $form->addHidden('route','kernel_utilisateur_ajouter');
@@ -67,11 +65,11 @@ function formAjouter_route(){
     }
     $form->addSelect('utilisateurtype_id', $list, array(), 'Type');
     // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
-    include(ROOT.'AdminLTE/form.php');    
+    include(ROOT.'AdminLTE/form.php');
 }
 function loginExiste($login){
     $result=Connexion::queryFirst('select count(*) as nb from utilisateur where login="'.$login.'"');
-    return $result['nb']>0;    
+    return $result['nb']>0;
 }
 function ajouter_route(){
     if($_POST['password1']==$_POST['password2']){
@@ -82,10 +80,10 @@ function ajouter_route(){
             $password=$_POST['password1'];
             $utilisateurtype_id=$_POST['utilisateurtype_id'];
             $query='insert into utilisateur(login,password,utilisateurtype_id) values("'.$login.'","'.$password.'","'.$utilisateurtype_id.'")';
-            Connexion::exec($query);                    
+            Connexion::exec($query);
             $_SESSION['messages']='Utilisateur enregistré';
             header('Location:.?route=kernel_utilisateur_liste');
-        }        
+        }
     }else{
         $_SESSION['messages']='Confirmation du mot de passe erroné';
     }

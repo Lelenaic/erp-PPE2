@@ -8,8 +8,6 @@ include('./_class/formelement.php');
 include('./_config/bdd.php');
 include('./_config/chemins.php');
 include('./_config/appli.php');
-<<<<<<< HEAD
-=======
+
 // inclusion de la fonction qui affiche le menu
->>>>>>> Equipe1
 include('./mod_kernel/menu.php');

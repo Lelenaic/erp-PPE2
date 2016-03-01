@@ -4,13 +4,13 @@ class Form {
 
     /**
      * store form's elements
-     * @var AssociativeArray(FormElement) 
+     * @var AssociativeArray(FormElement)
      */
     protected $_elements;
 
     /**
      * store hidden elements
-     * @var array 
+     * @var array
      */
     protected $_hiddens;
 
@@ -21,8 +21,8 @@ class Form {
     protected $_attributs;
 
     /**
-     * to display buttons 
-     * @var boolean true 
+     * to display buttons
+     * @var boolean true
      */
     protected $_buttons;
     protected $_js;
@@ -54,7 +54,7 @@ class Form {
     }
 
     /**
-     * method to hide submit and reset buttons 
+     * method to hide submit and reset buttons
      */
     public function noButtons() {
         $this->_buttons = false;
@@ -62,8 +62,8 @@ class Form {
 
     /**
      * add an attribute to the form
-     * @param String $key 
-     * @param String $value 
+     * @param String $key
+     * @param String $value
      */
     public function addAttribute($key, $value) {
         $this->_attributs[$key] = $value;
@@ -71,7 +71,7 @@ class Form {
 
     /**
      * add an element to the form
-     * @param FormElement $element 
+     * @param FormElement $element
      * @return FormElement
      */
     private function addElement(FormElement $element) {
@@ -82,7 +82,7 @@ class Form {
      * Add an input element to the form
      * @param String $name
      * @param array $attributs
-     * @param String $label 
+     * @param String $label
      * @return FormElement
      */
     private function addInput($name, $attributs, $label = '', $tooltip = null) {
@@ -117,7 +117,7 @@ class Form {
      * @param String $name
      * @param array $attributs
      * @param String $label
-     * @return FormElement 
+     * @return FormElement
      */
     public function addText($name, $attributs = array(), $label = '', $tooltip = null) {
         $attributs['name'] = $name;
@@ -173,7 +173,7 @@ class Form {
      * @param String $name
      * @param array $attributs
      * @param String $label
-     * @return FormElement 
+     * @return FormElement
      */
     public function addPassword($name, $attributs = array(), $label = '', $tooltip = null) {
         $attributs['name'] = $name;
@@ -194,7 +194,7 @@ class Form {
      * @param String $name
      * @param array $attributs
      * @param String $label
-     * @return FormElement 
+     * @return FormElement
      */
     public function addTextarea($name, $attributs = array(), $label = '', $tooltip = null) {
         $attributs['name'] = $name;
@@ -209,7 +209,7 @@ class Form {
      * @param array $list
      * @param String $attributs
      * @param String $label
-     * @return FormElement 
+     * @return FormElement
      */
     public function addSelect($name, $list = array(), $attributs = array(), $label = '', $tooltip = null) {
         $attributs['name'] = $name;
@@ -228,7 +228,7 @@ class Form {
     /**
      * Add a submit button
      * @param array $attributs
-     * @return FormElement 
+     * @return FormElement
      */
     public function addSubmit($attributs = array()) {
         $attributs['type'] = 'submit';
@@ -238,7 +238,7 @@ class Form {
     /**
      * Add a reset button
      * @param array $attributs
-     * @return FormElement 
+     * @return FormElement
      */
     public function addReset($attributs = array()) {
         $attributs['type'] = 'reset';
@@ -248,7 +248,7 @@ class Form {
     /**
      * getter
      * @param String $name
-     * @return FormElement 
+     * @return FormElement
      */
     public function get($name) {
         if (isset($this->_elements[$name])) {
@@ -261,7 +261,7 @@ class Form {
     }
 
     /**
-     * methods to display form 
+     * methods to display form
      * @return String
      */
     public function header() {
@@ -270,7 +270,7 @@ class Form {
 
     /**
      * method to close form tag
-     * @return string 
+     * @return string
      */
     public function footer() {
 
@@ -298,7 +298,7 @@ class Form {
     /**
      * generate html to display form with a table
      * @param array $attributs
-     * @return string 
+     * @return string
      */
     public function table($attributs = array()) {
         $html = $this->header();
@@ -326,7 +326,7 @@ class Form {
     /**
      * static method to display attributs
      * @param array $attr
-     * @return string 
+     * @return string
      */
     public static function attrToHTML($attr) {
         $html = '';
