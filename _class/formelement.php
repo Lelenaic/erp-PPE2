@@ -127,9 +127,9 @@ class FormElement {
         $html = '<select ' . Form::attrToHTML($this->_attr) . '>';
         foreach ($list as $val => $label) {
             if ($val == $_value) {
-                $html.='<option value="' . $val . '" selected>' . $label . '</option>';
+                $html.='<option value="' . $label . '" selected>' . $label . '</option>';
             } else {
-                $html.='<option value="' . $val . '">' . $label . '</option>';
+                $html.='<option value="' . $label . '">' . $label . '</option>';
             }
         }
         $html.='</select>';
