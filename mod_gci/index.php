@@ -1,11 +1,7 @@
 <?php
 
-function forum_route() {
-    include(ROOT.'AdminLTE/forum.php');
-}
-
 function messages_route(){
-    include(ROOT.'mod_gci/messages.php');
+    include(ROOT . 'mod_gci/messages.php');
 }
 
 function messages(){
@@ -26,9 +22,6 @@ function messages(){
     $taille=sizeof($topic);
     for ($i=0;$i<$taille;$i++)
     {
-        
-        
-    
     
     ?>
     <!-- timeline item -->
@@ -57,19 +50,12 @@ function messages(){
     }
     ?>
     
-
     </ul>
-
-
-    
-    
     
     <?php
 }
 
-
-
-function forum2_route(){
+function forum_route(){
     include(ROOT . 'mod_gci/forum.php');
 }
 

@@ -91,7 +91,7 @@
 
                 <!-- Main content -->
                 <section class="content">
-                    <?php echo forum(); ?>
+                    <?php echo topic(); ?>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
