@@ -3,7 +3,15 @@
 function forum_route() {
     include(ROOT.'AdminLTE/forum.php');
 }
-function timeline(){
+
+function messages_route(){
+    include(ROOT.'mod_gci/messages.php');
+}
+
+function messages(){
+    $topic=Connexion::table('SELECT * FROM message WHERE sujet_id=1');
+    $titre=Connexion::table('SELECT * FROM topic WHERE id=1');
+    echo '<h2>'.$titre[0]['titre'].'</h2>';
     ?>
     <ul class="timeline">
 
@@ -14,40 +22,54 @@ function timeline(){
         </span>
     </li>
     <!-- /.timeline-label -->
-
+    <?php 
+    $taille=sizeof($topic);
+    for ($i=0;$i<$taille;$i++)
+    {
+        
+        
+    
+    
+    ?>
     <!-- timeline item -->
     <li>
         <!-- timeline icon -->
-        <i class="fa fa-envelope bg-blue"></i>
+        <i class="fa fa-user bg-blue"></i>
         <div class="timeline-item">
             <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
 
-            <h3 class="timeline-header"><a href="#">Support Team</a> ...</h3>
+            <h3 class="timeline-header"><a href="#">
+                <?php 
+                $utilisateur=Connexion::table('SELECT login FROM utilisateur WHERE id='.$topic[$i]['utilisateur_id']); 
+                echo $utilisateur[0]['login'];
+                ?>
+                </a> </h3>
 
             <div class="timeline-body">
-                ...
-                Content goes here
+                <?php echo $topic[$i]['contenu'] ?>
             </div>
 
-            <div class="timeline-footer">
-                <a class="btn btn-primary btn-xs">...</a>
-            </div>
+            
         </div>
     </li>
     <!-- END timeline item -->
-
-    ...
-
-</ul>
+    <?php
+    }
+    ?>
     
 
+    </ul>
 
 
+    
+    
+    
     <?php
-    echo 'tamer';
 }
 
-function forum_route(){
+
+
+function forum2_route(){
     include(ROOT . 'mod_gci/forum.php');
 }
 
