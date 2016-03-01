@@ -37,12 +37,4 @@ function menuUtilisateur($menuParent_id = null) {
         
     }
     return $html;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> Equipe1
-=======
-}
->>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
