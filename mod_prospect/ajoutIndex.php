@@ -10,13 +10,10 @@ function index_route()
     $form->addText('ville',array(), 'Ville');
     $form->addEmail('mail', array(),'Adresse Mail');
     $form->addNumeric('numTel',array(),'Numéro de Téléphone');
-    
      include(ROOT.'AdminLTE/form.php');
 }
 
 function valid_route(){
-
-
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
     $adresse=$_POST['adresse'];
@@ -28,7 +25,4 @@ function valid_route(){
             . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
     Connexion::exec($query);
     include(ROOT.'AdminLTE/alerte.php');
-
-    
 }
-

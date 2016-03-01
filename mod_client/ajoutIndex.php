@@ -1,8 +1,7 @@
 <?php
-function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville="", $mail="", $numTel="")
-{
-
+function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville="", $mail="", $numTel=""){
     //Formulaire d'enregistrement d'un client.
+    // Fichier d'arrivé par défaut pour s'identifier d'authentification
     $form = new FormBootstrap('Client');
     $form->addHidden('route', 'client_ajoutIndex_valid');
     $form->addText('nom', array($nom), 'Nom');
@@ -57,5 +56,5 @@ function valid_route()
     {
         index_route($nom, $prenom, $adresse, $codePostal, $ville, $mail, $numTel);
     }
+    include(ROOT.'AdminLTE/alerte.php');
 }
-
