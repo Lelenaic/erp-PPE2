@@ -1,3 +1,3 @@
 <?php
 
-define('ROOT','/var/www/html/ERP/erp-PPE2/');
+define('ROOT','/var/www/html/erp-PPE2/');
