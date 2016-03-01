@@ -1,8 +1,7 @@
 <?php
 include('functions_forum.php');
-//include('functions_topic.php');
-//include('functions_messages.php');
-
+include('functions_topic.php');
+include('functions_messages.php');
 
 function messages_route(){
     include(ROOT . 'mod_gci/messages.php');
