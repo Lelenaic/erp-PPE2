@@ -13,7 +13,7 @@ function index_route()
 <?php
 function index_route()
 {
->>>>>>> 2cc1c75ed2eae015a23e18e6c64adf32cba3270b
+
     $form = new FormBootstrap('Prospect');
     $form->addHidden('route', 'prospect_ajoutIndex_valid');
     $form->addText('nom',array(), 'Nom');
@@ -26,7 +26,7 @@ function index_route()
     
      include(ROOT.'AdminLTE/form.php');
 }
-<<<<<<< HEAD
+
 function valid_route(){
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
@@ -41,7 +41,7 @@ function valid_route(){
     include(ROOT.'AdminLTE/alerte.php');
     
 }
-=======
+
 
 function valid_route(){
 
@@ -62,4 +62,4 @@ function valid_route(){
 }
 
 
->>>>>>> Equipe1
+
