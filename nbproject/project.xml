@@ -3,7 +3,11 @@
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
+<<<<<<< HEAD
             <name>ERP</name>
+=======
+            <name>erp-PPE2</name>
+>>>>>>> Equipe5
         </data>
     </configuration>
 </project>
