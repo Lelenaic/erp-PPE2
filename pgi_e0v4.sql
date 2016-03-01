@@ -431,7 +431,7 @@ CREATE TABLE `topic` (
   `utilisateur_id` int(11) NOT NULL,
   `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nbVisite` int(11) NOT NULL,
-  `dateCreation` int(11) NOT NULL
+  `dateCreation` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
