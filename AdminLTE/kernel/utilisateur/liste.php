@@ -97,7 +97,14 @@
                                 <thead>
                                     <tr>
                                         <th>Login</th>
-                                        <th>Type</th>
+                                        <th>superAdmin</th>
+                                        <th>Admin</th>
+                                        <th>direction</th>
+                                        <th>comptablilité</th>
+                                        <th>gestion des stocks</th>
+                                        <th>transport</th>
+                                        <th>resources humaines</th>
+                                        <th>relation commerciale</th>
                                     </tr>
                                         
                                 </thead>

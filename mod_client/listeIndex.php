@@ -5,12 +5,16 @@ function index_route(){
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> origin/Equipe2_V5
 =======
 
 >>>>>>> origin/Equipe6_V5
+=======
+
+>>>>>>> origin/Equipe7_V5
 function deleteClient_route()
 { 
     $id = $_GET['id'];
@@ -18,6 +22,7 @@ function deleteClient_route()
     index_route();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
@@ -25,3 +30,6 @@ function deleteClient_route()
 =======
 }
 >>>>>>> origin/Equipe6_V5
+=======
+}
+>>>>>>> origin/Equipe7_V5

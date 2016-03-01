@@ -1,6 +1,5 @@
 <?php
-function index_route()
-{
+function index_route(){
     $form = new FormBootstrap('Prospect');
     $form->addHidden('route', 'prospect_ajoutIndex_valid');
     $form->addText('nom',array(), 'Nom');
