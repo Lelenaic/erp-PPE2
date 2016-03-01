@@ -25,4 +25,5 @@ function valid_route(){
             . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
     Connexion::exec($query);
     include(ROOT.'AdminLTE/alerte.php');
+    
 }

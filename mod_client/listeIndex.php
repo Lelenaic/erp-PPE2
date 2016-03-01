@@ -4,16 +4,24 @@ function index_route(){
     include(ROOT.'AdminLTE/client/liste.php');
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> origin/Equipe2_V5
+=======
+
+>>>>>>> origin/Equipe6_V5
 function deleteClient_route()
 { 
     $id = $_GET['id'];
     Connexion::exec("DELETE FROM client WHERE id=$id");
     index_route();
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> origin/Equipe2_V5
+=======
+}
+>>>>>>> origin/Equipe6_V5
