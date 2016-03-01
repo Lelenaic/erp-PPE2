@@ -1,28 +1,27 @@
-<?php 
 
-function formAjouterStock_route(){
-    include(ROOT.'AdminLTE/ajouterStock.php');
+<?php 
+function ajouterStock_route(){
+    ajouterStock();
 }
 
 function ajouterStock(){
     $form=new FormBootstrap();
-    $form->addHidden('route','kernel_produit_ajouter');
+    
+    $form->addHidden('route','produit_ajouter');
     $form->addText('login', array(), 'Quantité');
     
-    
-    $produits=  Connexion::table('select libelle from produits');
+    $produit=  Connexion::table('select libelleProduit from produit');
     $list=array();
-    foreach ($produits as $ut){
-        $list[]=$ut['libelle'];
+    foreach ($produit as $ut){
+        $list[]=$ut['libelleProduit'];
     }
     $form->addSelect('utilisateurtype_id', $list, array(), 'Type');
-    
-    $entreprises=  Connexion::table('select libelle from entreprises');
-    $list=array();
-    foreach ($entreprises as $ut){
-        $list[]=$ut['libelle'];
+    $entreprise=  Connexion::table('select libelle from organisation');
+    $list2=array();
+    foreach ($entreprise as $ut){
+        $list2[]=$ut['libelle'];
     }
-    $form->addSelect('utilisateurtype_id', $list, array(), 'Type');
+    $form->addSelect('organisation_id', $list2, array(), 'Organisation');
     // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
-    include(ROOT.'AdminLTE/form.php'); 
+    include(ROOT.'AdminLTE/form.php');
 }

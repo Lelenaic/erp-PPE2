@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title><?php echo Liste; ?></title>
+        <title><?php echo titreApplication; ?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -85,7 +85,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des Clients
+                        Liste du stock
                     </h1>
                 </section>
 
@@ -96,69 +96,25 @@
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
                                     <tr>
-                                        <th>id</th>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>adresse</th>
-                                        <th>Code Postal</th>
-                                        <th>Ville</th>
-                                        <th>Mail</th>
-                                        <th>Téléphone</th>
-                                        
+                                        <th>produit</th>
+                                        <th>quantite</th>
+                                        <th>organisation</th>
                                     </tr>
                                         
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($client as $u) {
+                                    foreach ($stock as $u) {
                                         echo '<tr>'
-                                            ,'<td>',$u['id'],'</td>'
-                                            ,'<td>',$u['nom'],'</td>'
-                                            ,'<td>',$u['prenom'],'</td>'
-                                            ,'<td>',$u['adresse'],'</td>'    
-                                            ,'<td>',$u['codePostal'],'</td>'    
-                                            ,'<td>',$u['ville'],'</td>'    
-                                            ,'<td>',$u['mail'],'</td>'   
-                                            ,'<td>',$u['numTelephone'],'</td>'    
+                                            ,'<td>',$u['libelleProduit'],'</td>'
+                                            ,'<td>',$u['quantite'],'</td>'
+                                            ,'<td>',$u['libelle'],'</td>'
                                             ,'</tr>';
                                     }
                                     ?>
                                 </tbody>
                             </table>
-                                <table id="example2" class="table table-bordered table-hover datatable">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nom</th>
-                                            <th>Prénom</th>
-                                            <th>adresse</th>
-                                            <th>Code Postal</th>
-                                            <th>Ville</th>
-                                            <th>Mail</th>
-                                            <th>Téléphone</th>
 
-                                        </tr>
-
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        foreach ($client as $u) {
-                                            echo '<tr>'
-                                                ,'<td>',$u['id'],'</td>'
-                                                ,'<td>',$u['nom'],'</td>'
-                                                ,'<td>',$u['prenom'],'</td>'
-                                                ,'<td>',$u['adresse'],'</td>'    
-                                                ,'<td>',$u['codePostal'],'</td>'    
-                                                ,'<td>',$u['ville'],'</td>'    
-                                                ,'<td>',$u['mail'],'</td>'   
-                                                ,'<td>',$u['numTelephone'],'</td>'
-                                                ,'<td>','<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-trash"></i></a>'
-                                                     //  ,'<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-pencil"></i></a>','</td>'   
-                                                ,'</tr>';
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
                         </div>
                     </div>
 
