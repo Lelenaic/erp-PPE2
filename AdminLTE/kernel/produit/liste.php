@@ -85,7 +85,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des utilisateurs
+                        Liste des Produits
                     </h1>
                 </section>
 
@@ -96,17 +96,21 @@
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
                                     <tr>
-                                        <th>Login</th>
-                                        <th>Type</th>
+                                        <th>Produits</th>
+                                        <th>Référence</th>
+                                        <th>Fournisseur</th>
+                                        <th>Poids</th>
                                     </tr>
                                         
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($utilisateurs as $u) {
+                                    foreach ($produits as $u) {
                                         echo '<tr>'
-                                            ,'<td>',$u['login'],'</td>'
-                                            ,'<td>',$u['utilisateurtype_id'],'</td>'
+                                            ,'<td>',$u['libelleProduit'],'</td>'
+                                            ,'<td>',$u['reference'],'</td>'
+                                            ,'<td>',$u['nom'],'</td>'
+                                            ,'<td>',$u['poids'],'</td>'
                                             ,'</tr>';
                                     }
                                     ?>

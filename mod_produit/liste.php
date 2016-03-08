@@ -11,5 +11,8 @@ function stock_route()
 }
 function produit_route()
 {
-    echo 'On est en train de travailler dessus ! Cela arrive bientôt.';
+    $produits=Connexion::table('SELECT libelleProduit,reference,fournisseur.nom,poids
+                            FROM produit, fournisseur
+                            WHERE fournisseur.id=produit.fournisseur_id');
+    include(ROOT.'AdminLTE/kernel/produit/liste.php');
 }
