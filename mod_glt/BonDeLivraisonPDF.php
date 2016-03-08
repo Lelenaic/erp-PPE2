@@ -18,14 +18,18 @@ class PDF extends FPDF
 	function BasicTable($header, $data)
 	{
 		// En-tête
-		foreach($header as $col)
-			$this->Cell(63.3,7,$col,1);
-		$this->Ln();
+		//foreach($header as $col)
+			$this->Cell(126,7,$header[0],1);
+			$this->Cell(43,7,$header[1],1);
+			$this->Cell(21,7,$header[2],1);
+			$this->Ln();
 		// Données
 		foreach($data as $row)
 		{
-			foreach($row as $col)
-				$this->Cell(63.3,8,$col,1);
+			//foreach($row as $col)
+				$this->Cell(126,8,$row['libelle'],1);
+				$this->Cell(43,8,$row['reference'],1);
+				$this->Cell(21,8,$row['quantite'],1);
 			$this->Ln();
 		}
 	}
@@ -49,20 +53,21 @@ $pdf->Cell(0,0,$infoEntrepriseFournisseur[0]['adresse'],'',1);							//"Adresse"
 $pdf->Cell(0,10,$infoEntrepriseFournisseur[0]['ville'].' '.$infoEntrepriseFournisseur[0]['codePostal'],'',1);			//"Adresse" deviendra '$infoEntrepriseFournisseur[0][3].' '.$infoEntrepriseFournisseur[0][1]'
 $pdf->Cell(0,0,$infoEntrepriseFournisseur[0]['tel'],'',1);					//"Adresse" deviendra '$infoEntrepriseFournisseur[0][4]'
 
-//$infoEntrepriseCliente=bonDeLivraisonEntrepriseCliente($idClient);
+$infoEntrepriseCliente=bonDeLivraisonEntrepriseCliente(1);
 $pdf->Cell(0,10,'','',1,'R');
 
-$pdf->Cell(0,10,'Entreprise cliente',0,1,'R');			//"Entreprise fournisseur" deviendra '$infoEntrepriseCliente[0][0]'
-$pdf->Cell(0,0,'Adresse','',1,'R');					//"Adresse" deviendra '$infoEntrepriseCliente[0][2]'
-$pdf->Cell(0,10,'Ville + Code Postal','',1,'R');		//"Adresse" deviendra '$infoEntrepriseCliente[0][3].' '.$infoEntrepriseCliente[0][1]'
-$pdf->Cell(0,0,'Num telephone','',1,'R');				//"Adresse" deviendra '$infoEntrepriseCliente[0][4]'
+$pdf->Cell(0,10,$infoEntrepriseCliente[0]['libelle'],0,1,'R');			//"Entreprise fournisseur" deviendra '$infoEntrepriseCliente[0][0]'
+$pdf->Cell(0,0,$infoEntrepriseCliente[0]['adresse'],'',1,'R');					//"Adresse" deviendra '$infoEntrepriseCliente[0][2]'
+$pdf->Cell(0,10,$infoEntrepriseCliente[0]['ville'].' '.$infoEntrepriseCliente[0]['codePostal'],'',1,'R');		//"Adresse" deviendra '$infoEntrepriseCliente[0][3].' '.$infoEntrepriseCliente[0][1]'
+$pdf->Cell(0,0,$infoEntrepriseCliente[0]['numero'],'',1,'R');				//"Adresse" deviendra '$infoEntrepriseCliente[0][4]'
 $pdf->Cell(0,15,'','',1,'R');
 
-$pdf->Cell(0,10,'TABLEAU DES PRODUITS ACHETES','TB',1,'C');
+$pdf->Cell(0,10,'PRODUITS LIVRES','TB',1,'C');
 $pdf->Cell(0,5,'','',1,'R');
 $header = array('Article', 'Reference Produit', 'Quantite',);
 $data = bonDeLivraisonProduit(1);
 $pdf->BasicTable($header,$data);
+
 $pdf->Output();
 
 
@@ -80,7 +85,10 @@ function bonDeLivraisonEntrepriseFournisseur($idEntreprise)
 
 function bonDeLivraisonEntrepriseCliente($idClient)
 {
-	$requeteEntrepriseCliente="SELECT nom,codePostal,adresse,ville,tel FROM fournisseur WHERE id='$idClient'";
+	$requeteEntrepriseCliente="SELECT organisation.codePostal,organisation.adresse,organisation.ville,organisation.numero,organisation.libelle 
+								FROM client,organisation 
+								WHERE client.entreprise_id=organisation.id 
+								AND client.id='$idClient'";
 	$result = Connexion::table($requeteEntrepriseCliente);
     return $result;
 }
