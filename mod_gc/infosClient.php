@@ -85,7 +85,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des utilisateurs
+                        Archives
                     </h1>
                 </section>
 
@@ -95,44 +95,37 @@
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
-                                    
-                                    <tr>
-                                        <th>id archives</th>
-                                        <th>date</th> 
-                                    </tr>
-                               <tbody>
-                                    // code qui créer le tableau de l’archive
-<tr>
-                                       <th>date</th><br />                                       
-                                       <th>nom client</th><br />
-                                       <th>nom employé</th><br />
-                                       <th>produits commandé</th>
-                                       <th>quantité</th>
-                                       <th>prix unitaire</th>                                                            
-                                       <th>prix total</th>
-                                   </tr>
-                                    <tbody>
-                              
-<!--
-                               Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client
-                               idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
--->
-                                      
-                                   <?php
-                                   foreach ($archives as $u) {
-                                       echo '<tr>';
-                                       echo '<td>',$u['date'],'</td>';
-                                         echo'<td><a href="infosClient.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
-                                         echo'<td><a href="infosEmploye.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
-                                         echo'<td>',$u['libelle'],'</td>';
-                                         echo'<td>',$u['quantité'],'</td>';
-                                         echo'<td><b>',$u['montant'],'</b></td>';
-                                   }
-                                     ?>
-
+                                     <tr>
+										<th>nom client</th>
+										<th>prenom client</th>
+										<th>adresse</th>
+										<th>code postal</th>
+										<th>ville</th>
+										<th>organisation</th>
+										<th>mail</th>
+										<th>numéro de téléphone</th>
+                                     </tr>
+									
+									<?php
+									foreach ($infosClient as $r)
+									{
+										echo '<tr>';
+     									echo'<td>'$r['nom']'</td>';
+     									echo'<td>',$r['prenom']'</td>';
+     									echo'<td>'.$r['adresse']'</td>';
+     									echo'<td>',$r['codePostal'],'</td>';
+     									echo'<td>',$r['ville'],'</td>';
+     									echo'<td>',$r['organisation'],'</td>';
+     									echo'<td>',$r['mail'],'</td>';
+     									echo'<td>',$r['numTelephone'],'</td>';										
+										'</tr>'
+									}
+									 ?>
                                 </thead>
                             </table>
-
+                                </thead>
+                              
+							<br />
                         </div>
                     </div>
 

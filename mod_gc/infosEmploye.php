@@ -20,7 +20,6 @@
         <link href="./AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="./AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -85,61 +84,55 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des utilisateurs
+                        Archives
                     </h1>
                 </section>
-
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
-                                    
-                                    <tr>
-                                        <th>id archives</th>
-                                        <th>date</th> 
+                                     <tr>
+                                        <th>Nom</th><br />                                        
+                                        <th>Prenom</th><br />
+                                        <th>date de Naissance</th><br />
+                                        <th>Téléphone</th>
+                                        <th>Mail</th>
+                                        <th>ville</th>                                                             
+                                        <th>Code Postal</th>                                                             
+                                        <th>Adresse</th>
                                     </tr>
-                               <tbody>
-                                    // code qui créer le tableau de l’archive
-<tr>
-                                       <th>date</th><br />                                       
-                                       <th>nom client</th><br />
-                                       <th>nom employé</th><br />
-                                       <th>produits commandé</th>
-                                       <th>quantité</th>
-                                       <th>prix unitaire</th>                                                            
-                                       <th>prix total</th>
-                                   </tr>
-                                    <tbody>
-                              
+                                     <tbody>
+                                
 <!--
-                               Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client
-                               idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
--->
-                                      
-                                   <?php
-                                   foreach ($archives as $u) {
-                                       echo '<tr>';
-                                       echo '<td>',$u['date'],'</td>';
-                                         echo'<td><a href="infosClient.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
-                                         echo'<td><a href="infosEmploye.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
-                                         echo'<td>',$u['libelle'],'</td>';
-                                         echo'<td>',$u['quantité'],'</td>';
-                                         echo'<td><b>',$u['montant'],'</b></td>';
-                                   }
-                                     ?>
-
+                                Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client
+                                idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
+-->                                        
+                                    <?php
+                                    foreach ($infosEmploye as $u) {
+                                        echo '<tr>';
+                                        echo '<td>',$u['nomEmploye'],'</td>';
+                                         echo'<td>',$u['prenomEmploye'],'</td>';
+                                         echo'<td>',$u['dateNaissance'],'</td>';
+                                         echo'<td>',$u['numero'],'</td>';
+                                         echo'<td>',$u['mail'],'</td>';
+                                         echo'<td>',$u['ville'],'</td>';
+                                         echo'<td>',$u['codePostal'],'</td>';
+                                         echo'<td>',$u['adresse'],'</td>';
+                                    }
+                                     ?>    
                                 </thead>
                             </table>
-
+                                </thead>
+                              
+                            <br />
                         </div>
                     </div>
 
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
@@ -161,17 +154,13 @@
         <script src="./AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
         <!-- iCheck -->
         <script src="./AdminLTE/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-
         <!-- DATA TABES SCRIPT -->
         <script src="./AdminLTE/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="./AdminLTE/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-
         <!-- AdminLTE App -->
         <script src="./AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
-
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <!-- <script src="./AdminLTE/js/AdminLTE/dashboard.js" type="text/javascript"></script> -->
-
         <!-- AdminLTE for demo purposes -->
         <script src="./AdminLTE/js/AdminLTE/demo.js" type="text/javascript"></script>
         <script type="text/javascript">
