@@ -105,11 +105,35 @@
                                 <tbody>
                                     <?php
                                     foreach ($stock as $u) {
-                                        echo '<tr>'
+                                        if (isset($_POST['id']))
+                                       {
+                                            $form=new FormBootstrap();
+                                            $form->addHidden('route','produit_ajouter_route');
+                                            $form->addText('quantite', array(), 'Quantité');
+                                            $produit=Connexion::table('select libelleProduit from produit');
+                                            $list=array();
+                                            foreach ($produit as $ut){
+                                                $list[]=$ut['libelleProduit'];
+                                            }
+                                            $form->addSelect('libelleProduit', $list, array(), 'Type');
+                                            $entreprise=  Connexion::table('select libelle from organisation');
+                                            $list2=array();
+                                            foreach ($entreprise as $ut){
+                                                $list2[]=$ut['libelle'];
+                                            }
+                                            $form->addSelect('organisation', $list2, array(), 'Organisation');
+                                            // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
+                                        }
+                                        else 
+                                        {
+                                            echo '<tr>'
                                             ,'<td>',$u['libelleProduit'],'</td>'
                                             ,'<td>',$u['quantite'],'</td>'
                                             ,'<td>',$u['libelle'],'</td>'
-                                            ,'</tr>';
+                                            ,'<td> <form method ="post" action="?route=produit_liste_stock"><input type="hidden" name = "id" value="'.$u['id'].'"/>
+                                                <button class="btn btn-primary" type="submit">Modifier</button> </form></td>'
+                                            ,'</tr>'; 
+                                        }
                                     }
                                     ?>
                                 </tbody>
