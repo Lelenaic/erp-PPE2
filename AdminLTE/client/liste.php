@@ -116,7 +116,7 @@
                                     foreach ($client as $u) {
                                         echo '<tr>'
                                             ,'<td>',$u['id'],'</td>'
-                                            ,'<td>',$u['nom'],'</td>'
+                                            ,'<td><a href="index.php?route=gc_gestionComptable_listeFacture&clientId='.$u['id'].'">'.$u['nom'].'</a></td>'
                                             ,'<td>',$u['prenom'],'</td>'
                                             ,'<td>',$u['adresse'],'</td>'    
                                             ,'<td>',$u['codePostal'],'</td>'    
