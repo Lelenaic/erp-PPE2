@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -135,4 +133,9 @@
         <script src="./AdminLTE/js/AdminLTE/demo.js" type="text/javascript"></script>
 
     </body>
+<<<<<<< HEAD
+</html>
+</html>
+=======
+>>>>>>> origin/Equipe6_V5
 </html>

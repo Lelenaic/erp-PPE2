@@ -22,7 +22,7 @@
         <link href="./AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -84,10 +84,8 @@
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    
                     <h1>
                         <?php
-                        
                         if (isset($titre)) {
                             echo $titre;
                         }
@@ -100,24 +98,19 @@
                     <!-- Main row -->
                     <div class="row">
                         <?php
-                        if (isset($_POST['erreur']))
+                        if (isset($_POST['rappel']))
                         {
-                        
-                            if ($_POST['erreur']=='true')
-                            {
-                                ?>
-                                <div class="alert alert-danger alert-dismissable">
+                        ?>
+
+                            <div class="alert alert-danger alert-dismissable">
                                 <i class="fa fa-ban"></i>
                                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
                                 <b>Attention!</b> <?php echo 'Tous les champs ne sont pas remplis.'; ?>.
                             </div>
                         <?php
-                        
-                            }
                         }
                         if (isset($_SESSION['messages'])) {
                             ?>
-                            
                             <div class="alert alert-danger alert-dismissable">
                                 <i class="fa fa-ban"></i>
                                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
@@ -129,6 +122,7 @@
                         //si tous les champs sont remplis
 
                         ?>
+
                         <div class="col-lg-6">
                             <?php echo $form->table(); ?>
                         </div>

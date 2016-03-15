@@ -93,6 +93,38 @@
                 <section class="content">
                     <div class="row">
                         <div class="col-xs-12">
+                            <table id="example2" class="table table-bordered table-hover datatable">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>adresse</th>
+                                        <th>Code Postal</th>
+                                        <th>Ville</th>
+                                        <th>Mail</th>
+                                        <th>Téléphone</th>
+                                        
+                                    </tr>
+                                        
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($client as $u) {
+                                        echo '<tr>'
+                                            ,'<td>',$u['id'],'</td>'
+                                            ,'<td>',$u['nom'],'</td>'
+                                            ,'<td>',$u['prenom'],'</td>'
+                                            ,'<td>',$u['adresse'],'</td>'    
+                                            ,'<td>',$u['codePostal'],'</td>'    
+                                            ,'<td>',$u['ville'],'</td>'    
+                                            ,'<td>',$u['mail'],'</td>'   
+                                            ,'<td>',$u['numTelephone'],'</td>'    
+                                            ,'</tr>';
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                                 <table id="example2" class="table table-bordered table-hover datatable">
                                     <thead>
                                         <tr>
@@ -121,13 +153,12 @@
                                                 ,'<td>',$u['mail'],'</td>'   
                                                 ,'<td>',$u['numTelephone'],'</td>'
                                                 ,'<td>','<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-trash"></i></a>'
-                                                       ,'<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-trash"></i></a>','</td>'   
+                                                     //  ,'<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-pencil"></i></a>','</td>'   
                                                 ,'</tr>';
                                         }
                                         ?>
                                     </tbody>
                                 </table>
-
                         </div>
                     </div>
 
@@ -176,4 +207,3 @@
         </script>
     </body>
 </html>
-

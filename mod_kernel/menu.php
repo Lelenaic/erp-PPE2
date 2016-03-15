@@ -1,5 +1,4 @@
 <?php
-
 function menuUtilisateur($menuParent_id = null) {
     $utilisateur = $_SESSION['utilisateur'];
     $query = 'select * '
@@ -12,9 +11,8 @@ function menuUtilisateur($menuParent_id = null) {
         $query.= ' and m.menuparent_id=' . $menuParent_id;
     }
     $query.=' order by um.ordre';
-    
-    $menus = Connexion::table($query);
 
+    $menus = Connexion::table($query);
     $html = '';
     foreach ($menus as $menu) {
         if($menu['route']==''){
@@ -33,10 +31,10 @@ function menuUtilisateur($menuParent_id = null) {
                 <i class="fa '.$menu['icon'].'"></i> <span>'.$menu['label'].'</span>
                 </a>';
         if($enfants!=''){
-            $html.='<ul class="treeview-menu">'.$enfants.'</ul>';                    
+            $html.='<ul class="treeview-menu">'.$enfants.'</ul>';
         }
         $html.='</li>';
-        
+
     }
     return $html;
 }
