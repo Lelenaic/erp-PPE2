@@ -1,9 +1,9 @@
 <?php
  function formulaire($tableAjout, $erreur=false){
      // Iitilaisation du formulaire
-     $form = new FormBootstrap('Client');
-     $form->addHidden('route', 'client_ajoutIndex_valid');
-     $form->addHidden('rappel', 'true');
+    $form = new FormBootstrap('Client');
+    $form->addHidden('route', 'client_ajoutIndex_valid');
+    $form->addHidden('rappel', 'true');
     if($erreur)
     {
         //Formulaire d'enregistrement d'un client si l'utilisateur n'a pas remplis tous les champs.   
@@ -37,18 +37,17 @@
         }
         $form->addSelect('organisation', $list, array(), 'Organisation');
     }
-    
     // Appel du formulaire dans la page HTML (construction de la balise <form>)
      include(ROOT.'AdminLTE/form.php');
- }
- 
+}
+
  
  
 // Fichier d'arrivé par défaut pour s'identifier d'authentification
 function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville="", $mail="", $numTel="", $erreur=0)
 {
     formulaire([]);
-    
+         include(ROOT.'AdminLTE/form.php');  
 }
 
 function valid_route()
@@ -72,6 +71,7 @@ function valid_route()
         $organisationId = $_SESSION['utilisateur']['entreprise_id'];
     }
 
+    $organisation=$_POST['organisation'];
     $organisationId=Connexion::queryFirst("SELECT id FROM organisation where libelle='".$organisation."'");
 
     //vérification si aucune zone de texte est restée vide pour envoi à la BDD.
@@ -88,8 +88,5 @@ function valid_route()
         $tableAjout=[$nom,$prenom,$adresse,$codePostal,$ville,$mail,$numTel,$organisation];
         formulaire($tableAjout, true);
     }
-     
 }
-
-
-
+ 

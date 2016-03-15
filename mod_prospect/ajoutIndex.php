@@ -51,9 +51,8 @@ function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville=""
     
 }
 
-function valid_route()
-{
-    //Récupération du formulaire.
+function valid_route(){
+
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
     $adresse=$_POST['adresse'];
@@ -61,6 +60,7 @@ function valid_route()
     $ville=$_POST['ville'];
     $mail=$_POST['mail'];
     $numTel=$_POST['numTel'];
+
     if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
     { 
         $organisation=$_POST['organisation'];
@@ -89,4 +89,10 @@ function valid_route()
         formulaire($tableAjout, true);
     }
      
+
+    $query='INSERT INTO prospect (nom, prenom, adresse, codePostal, ville, mail, numtelephone)'
+            . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
+    Connexion::exec($query);
+    include(ROOT.'AdminLTE/alerte.php');
+    
 }
