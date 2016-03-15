@@ -20,7 +20,6 @@ function ajouter_route(){
             header('Location:.?route=grh_employe_liste');
         }
 
-
 //liste_route
 function liste_route(){
     $employe=Connexion::table('select * from testEmploye order by id');

@@ -95,6 +95,7 @@
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
+<<<<<<< HEAD
                                      <tr>
                                         <th>date</th><br />                                        
                                         <th>nom client</th><br />
@@ -122,9 +123,44 @@
      										,'<td>',$u['montant'],'</td>';
      										//~ ,'<td>',,'</td>'
                                             //~ ,'</tr>';
+=======
+                                    
+                                    <tr>
+                                        <th>id archives</th>
+                                        <th>date</th> 
+                                    </tr>
+                               <tbody>
+                                    <?php
+                                    foreach ($archives as $u) {
+                                        echo '<tr>'
+                                            ,'<td>',$u['id'],'</td>'
+                                            ,'<td>',$u['date'],'</td>'
+                                            ,'</tr>';
+>>>>>>> 84413cbaa00f252d733956fd1eb027bb70d0bb64
                                     }
                                     ?>
                                 </tbody>
+                                    <tr>
+                                        <th>nom client</th>                                        
+                                        <th>prenom client</th>                                        
+                                        <th>adresse client</th>                                        
+                                        <th>code postal client</th>                                        
+                                        <th>ville client</th>                                        
+                                        <th>entreprise client</th>                                        
+                                        <th>mail client</th>                                        
+                                        <th>numtelephone client</th>
+                                    </tr>
+<!--
+                                    <tr>
+                                        <th>libelle</th>
+                                        <th>numero</th>
+                                        <th>mail</th>
+                                        <th>ville</th>                                        
+                                        <th>code postal</th>
+                                        <th>adresse</th>
+                                    </tr>
+-->
+                                </thead>
                             </table>
                                 </thead>
                               

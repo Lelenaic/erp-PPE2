@@ -88,7 +88,22 @@
                         Tableau de bord
                     </h1>
                     <div class="alert alert-success">
-                       <strong>Success!</strong> <?php echo $_POST['prenom'];?>
+                       <strong>Success!</strong> 
+							<?php //$devisId=$_POST['id'];
+							$employe=$_POST['employe_id'];
+							$client=$_POST['client_id'];
+							$date=$_POST['date'];
+							$prix=$_POST['prix']; 
+							$validation=$_POST['validation_id'];
+							$query1='INSERT INTO devis (id,employe_id, client_id, date, prix, validation_id) VALUES (NULL,"'.$employe.'", "'.$client.'", "'.$date.'", "'.$prix.'","'.$validation.'")';
+							Connexion::exec($query1);
+							
+							$requete='SELECT MAX(id) AS "id" from devis';
+							$devisId=Connexion::queryFirst($requete);
+							$nomProduit=$_POST['produit_id'];
+							$quantite=$_POST['quantite'];
+							$query2='INSERT INTO ligneDevis (id,produit_id, quantite, devis_id) VALUES (NULL,"'.$nomProduit.'", "'.$quantite.'","'.$devisId['id'].'")';l
+							Connexion::exec($query2);?>
                     </div>
                 </section>
 

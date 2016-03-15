@@ -2,21 +2,30 @@
 
 function formDevis_route(){
     $form=new FormBootstrap();
-    $form->addHidden('route','gc_gestionComptable_formDevis');
-    $form->addText('nomSociete', array(), 'Nom de la société');
-    $form->addText('client', array(), 'Nom du client');
-    $form->addText('date', array(), 'Date');
-    $form->addText('produit', array(), 'Nom du produit');
-    $form->addText('quantite', array(), 'Quantité');
-    $form->addText('prix', array(), 'Prix');
-    $utilisateurtype=  Connexion::table('select * from utilisateurtype order by label');
+    $form->addHidden('route','gc_gestionComptable_ajouter');
     $list=array();
-    foreach ($utilisateurtype as $ut){
-        $list[$ut['id']]=$ut['label'];
+    $list1=array();
+    $list2=array();
+    $list3=array();
+    $employe=  Connexion::table('select * from employe');
+    foreach ($employe as $ut){
+        $list0[$ut['id']]=$ut['nom'];
     }
-    $form->addSelect('utilisateurtype_id', $list, array(), 'Type');
+    $form->addSelect('employe_id', $list0, array(), 'Nom de l\'employé');
+    $client=  Connexion::table('select * from client');
+    foreach ($client as $ut){
+        $list1[$ut['id']]=$ut['nom'];
+    }
+    $form->addSelect('client_id', $list1, array(), 'Nom du Client');    
+    $form->addText('date', array(), 'Date');
+    $produit=  Connexion::table('select * from produit');
+    foreach ($produit as $ut){
+        $list2[$ut['id']]=$ut['libelle'];
+    }
+    
     // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
     include(ROOT.'AdminLTE/form.php');    
+<<<<<<< HEAD
     
     
 
@@ -27,11 +36,30 @@ Fonction pour appelé dans la base de données les informations pour la liste de
 */ 
 
 
+=======
+}
+$form->addSelect('produit_id', $list2, array(), 'Nom du produit');
+    $validation=  Connexion::table('select * from validation');
+    foreach ($validation as $ut){
+        $list3[$ut['id']]=$ut['libelle'];
+    }
+    $form->addSelect('validation_id', $list3, array(), 'Validation');
+    $form->addText('quantite', array(), 'Quantité');
+    $form->addText('prix', array(), 'Prix');
+//ajouter route
+function ajouter_route(){
+    include(ROOT.'mod_gc/alerteDevis.php');
+}
+>>>>>>> 84413cbaa00f252d733956fd1eb027bb70d0bb64
 function listeFacture_route(){
     $utilisateurs=Connexion::table('select login,utilisateurtype_id from utilisateur order by login');
     include(ROOT.'mod_gc/listeFacture.php');
 }
 function listeArchive_route(){
+<<<<<<< HEAD
     $archives=Connexion::table('select * from archiveDevis');
+=======
+    $archives=Connexion::table('select id, date from archives');
+>>>>>>> 84413cbaa00f252d733956fd1eb027bb70d0bb64
     include(ROOT.'mod_gc/listeArchive.php');
 }
