@@ -62,7 +62,7 @@ class Form {
 
     /**
      * add an attribute to the form
-     * @param String $key
+     * @param String $keyarray
      * @param String $value
      */
     public function addAttribute($key, $value) {
@@ -211,7 +211,7 @@ class Form {
      * @param String $label
      * @return FormElement
      */
-    public function addSelect($name, $list = array(), $attributs = array(), $label = '', $tooltip = null) {
+    public function addSelect($name, $list = array(), $attributs = array('value'), $label = '', $tooltip = null) {
         $attributs['name'] = $name;
         $attributs['_list'] = $list;
         return $this->addElement(

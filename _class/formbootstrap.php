@@ -11,12 +11,12 @@ class FormBootstrap extends Form {
             $element->addClass('form-control');
             $table.='<div class="form-group">
                         <label>' . $element->getLabel() . '</label>
-                        ' . $element . '    
+                        ' . $element . '
                     </div>';
         }
 
         if ($this->_buttons) {
-            $table.='<button type="submit" class="btn btn-default">' . _('Submit') . '</button>';
+            $table.='<button type="submit" class="btn btn-info">' . _('Valider') . '</button>';
         }
         $table.='</form>';
         return $table;
@@ -31,11 +31,11 @@ class FormBootstrap extends Form {
             $element->addClass('form-control');
             $table.='<div class="form-group">
                         <label>' . $element->getLabel() . '</label>
-                        ' . $element . '    
+                        ' . $element . '
                     </div>';
         }
         if ($this->_buttons) {
-            $table.='<button type="submit" class="btn btn-default">' . _('Submit') . '</button>';
+            $table.='<button type="submit" class="btn btn-default">' . _('Valider') . '</button>';
         }
         $table.='</form>';
         return $table;
