@@ -7,7 +7,7 @@ function ajouterStock_route(){
 function ajouterStock(){
     $form=new FormBootstrap();
     
-    $form->addHidden('route','produit_ajouter_route');
+    $form->addHidden('route','produit_ajouterStock_route');
     $form->addText('quantite', array(), 'Quantité');
     
     $produit=Connexion::table('select libelleProduit from produit');
@@ -15,7 +15,7 @@ function ajouterStock(){
     foreach ($produit as $ut){
         $list[]=$ut['libelleProduit'];
     }
-    $form->addSelect('libelleProduit', $list, array(), 'Type');
+    $form->addSelect('libelleProduit', $list, array(), 'Nom du produit');
     $entreprise=  Connexion::table('select libelle from organisation');
     $list2=array();
     foreach ($entreprise as $ut){
