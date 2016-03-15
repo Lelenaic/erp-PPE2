@@ -110,10 +110,12 @@
                                             ,'<td>',$u['libelleProduit'],'</td>'
                                             ,'<td>',$u['reference'],'</td>'
                                             ,'<td>',$u['nom'],'</td>'
-                                            ,'<td>',$u['poids'],'</td>'
+                                            ,'<td>',$u['poids'],' Kg ','</td>'
+                                            ,'<td> <button class="btn btn-default" type="submit">Modifier</button> </td>'
                                             ,'</tr>';
                                     }
                                     ?>
+
                                 </tbody>
                             </table>
 
