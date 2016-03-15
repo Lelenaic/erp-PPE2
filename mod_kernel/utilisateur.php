@@ -80,6 +80,6 @@ function ajouter_route(){
     header('Location:.?route=kernel_utilisateur_formAjouter');
 }
 function liste_route(){
-    $utilisateurs=Connexion::table('select login,utilisateurtype_id from utilisateur order by login');
+    $utilisateurs=Connexion::table('select login,password,organisation.libelle AS entreprise,utilisateurtype.label AS secteur from utilisateur,organisation,utilisateurtype where organisation.id=utilisateur.entreprise_id and utilisateurtype.id=utilisateur.utilisateurtype_id order by login');
     include(ROOT.'AdminLTE/kernel/utilisateur/liste.php');
 }
