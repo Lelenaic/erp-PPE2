@@ -111,6 +111,8 @@
                                             ,'<td>',$u['reference'],'</td>'
                                             ,'<td>',$u['nom'],'</td>'
                                             ,'<td>',$u['poids'],'</td>'
+                                            ,'<td> <form method ="post" action="?route=produit_liste_stock"><input type="hidden" name = "id" value="'.$u['id'].'"/>
+                                            <button class="btn btn-primary" type="submit">Modifier</button> </form></td>'   
                                             ,'</tr>';
                                     }
                                     ?>
