@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function index_route(){
     $form = new FormBootstrap('Produit');
