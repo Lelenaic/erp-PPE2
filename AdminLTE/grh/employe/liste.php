@@ -131,12 +131,13 @@
                                             ,'<td>',$employe[$i]['adresse'],'</td>'
                                             ,'<td>',$employe[$i]['securiteSociale'],'</td>'
                                             ,'<td>',$entreprise_id[0]['libelle'],'</td>'
-                                            ,'<td>','<a href="?route=grh_employe_formModifier">Modifier</a>','</td>'
+                                            ,'<td>','<button type="button" class="btn btn-info" data-toggle="modal" data-target="#'.$employe[$i]['id'].'">Modifier</button>','</td>'
                                             ,'</tr>';
                                             }
                                     ?>
                                 </tbody>
                             </table>
+
 
                         </div>
                     </div>
@@ -144,6 +145,69 @@
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
+        <?php
+        for ($i=0;$i<$size;$i++) {
+          $poste_id=Connexion::table('select libelle from poste where id='.$employe[$i]['poste_id'].'');
+          $entreprise_id=Connexion::table('select libelle from organisation where id='.$employe[$i]['entreprise_id'].'');
+          echo '<div id="'.$employe[$i]['id'].'" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modifier Client</h4>
+                </div>
+                <div class="modal-body">';
+
+                  $form=new FormBootstrap();
+                  $form->addHidden('route','grh_employe_modifier');
+                  $form->addHidden('id',$employe[$i]['id']);
+                  $id['value']=$employe[$i]['id'];
+                  $nom['value']=$employe[$i]['nom'];
+                  $prenom['value']=$employe[$i]['prenom'];
+                  $dateNaissance['value']=$employe[$i]['dateNaissance'];
+                  $libelleP['value']=$poste_id[0]['libelle'];
+                  $numero['value']=$employe[$i]['numero'];
+                  $mail['value']=$employe[$i]['mail'];
+                  $ville['value']=$employe[$i]['ville'];
+                  $codePostal['value']=$employe[$i]['codePostal'];
+                  $adresse['value']=$employe[$i]['adresse'];
+                  $securiteSociale['value']=$employe[$i]['securiteSociale'];
+                  $libelleE['value']=$entreprise_id[0]['libelle'];
+                  $form->addText('nom', $nom , 'Nom');
+                  $form->addText('prenom', $prenom, 'Prénom');
+                  $form->addDate('dateNaissance', $dateNaissance, 'Date de naissance');
+                  $poste= Connexion::table('select * from poste');
+                  $list=array();
+                  foreach ($poste as $p)
+                  {
+                      $list[$p['id']]=$p['libelle'];
+                  }
+                  var_dump($list);
+                  $form->addSelect('poste', $list, array() , 'poste');
+                  $form->addText('numero', $numero, 'Numéro de télephone');
+                  $form->addText('mail', $mail, 'E-mail');
+                  $form->addText('ville', $ville, 'Ville');
+                  $form->addText('codePostal', $codePostal, 'Code postal');
+                  $form->addText('adresse', $adresse, 'Adresse');
+                  $form->addText('securiteSociale', $securiteSociale, 'Sécurité sociale');
+                  $entreprise= Connexion::table('select * from organisation');
+                  $list=array();
+                  foreach ($entreprise as $e)
+                  {
+                      $list[$e['id']]=$e['libelle'];
+                  }
+                  $form->addSelect('organisation', $list , $list, 'organisation');
+                  $list=array();
+                echo $form->table();
+                echo '</div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info" data-dismiss="modal">Fermer</button>
+                </div>
+              </div>
+            </div>
+          </div>';
+        }
+?>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
