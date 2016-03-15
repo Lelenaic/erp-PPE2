@@ -9,4 +9,5 @@ function deleteClient_route()
     $id = $_GET['id'];
     Connexion::exec("DELETE FROM client WHERE id=$id");
     index_route();
+
 }
