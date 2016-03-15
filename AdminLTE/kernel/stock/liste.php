@@ -95,21 +95,54 @@
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
-                                    <tr>
+                                   <tr>
                                         <th>produit</th>
                                         <th>quantite</th>
                                         <th>organisation</th>
                                     </tr>
-                                        
-                                </thead>
                                 <tbody>
+                                    
                                     <?php
                                     foreach ($stock as $u) {
-                                        echo '<tr>'
+                                        /*if (isset($_POST['id']))
+                                            {
+                                            
+                                            }
+                                        if ($_POST['id']==$u['id'])
+                                       {
+                                            
+                                            $form=new FormBootstrap();
+                                            echo '<td>';
+                                            $form->addText('produit', array(), 'Produit');
+                                            echo '<td>';
+                                            $produit=Connexion::table('select libelleProduit from produit');
+                                            $list=array();                                            
+                                            echo '</td>';
+                                            foreach ($produit as $ut){
+                                                $list[]=$ut['libelleProduit'];
+                                            }
+                                            $form->addSelect('libelleProduit', $list, array(), 'Type');
+                                            $entreprise=  Connexion::table('select libelle from organisation');
+                                            $list2=array();
+                                            foreach ($entreprise as $ut){
+                                                $list2[]=$ut['libelle'];
+                                            }
+                                            $form->addSelect('organisation', $list2, array(), 'Organisation');
+                                            echo $form->table();
+
+                                        }
+                                        else 
+                                        {*/
+                                            echo '
+                                        
+                                              </thead>'
                                             ,'<td>',$u['libelleProduit'],'</td>'
                                             ,'<td>',$u['quantite'],'</td>'
                                             ,'<td>',$u['libelle'],'</td>'
-                                            ,'</tr>';
+                                            ,'<td> <form method ="post" action="?route=produit_liste_stock"><input type="hidden" name = "id" value="'.$u['id'].'"/>
+                                                <button class="btn btn-primary" type="submit">Modifier</button> </form></td>'
+                                            ,'</tr>'; 
+                                        //}
                                     }
                                     ?>
                                 </tbody>

@@ -3,7 +3,7 @@
 
 function stock_route()
 {
-    $stock=Connexion::table('SELECT libelleProduit,quantite,organisation.libelle
+    $stock=Connexion::table('SELECT libelleProduit,quantite,organisation.libelle,stock.id
                             FROM stock,produit,organisation 
                             WHERE stock.produit_id=produit.id 
                             AND stock.organisation_id=organisation.id');
@@ -11,5 +11,8 @@ function stock_route()
 }
 function produit_route()
 {
-    echo 'On est en train de travailler dessus ! Cela arrive bientôt.';
+    $produits=Connexion::table('SELECT libelleProduit,reference,fournisseur.nom,poids,produit.id
+                            FROM produit, fournisseur
+                            WHERE fournisseur.id=produit.fournisseur_id');
+    include(ROOT.'AdminLTE/kernel/produit/liste.php');
 }

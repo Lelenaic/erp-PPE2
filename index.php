@@ -25,7 +25,6 @@ if (isset($_REQUEST['route'])) {
 //
 
 list($module, $fichier, $fonction) = explode('_', $route);
-
 include('./mod_'.$module.'/'.$fichier.'.php');
 
 if(!is_callable($fonction.'_route')){
