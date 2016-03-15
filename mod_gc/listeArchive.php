@@ -85,7 +85,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des utilisateurs
+                        Archives
                     </h1>
                 </section>
 
@@ -95,24 +95,40 @@
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
-                                    <tr>
-                                        <th>Login</th>
-                                        <th>Type</th>
-                                    </tr>
-                                        
-                                </thead>
-                                <tbody>
+                                     <tr>
+                                        <th>date</th><br />                                        
+                                        <th>nom client</th><br />
+                                        <th>nom employé</th><br />
+                                        <th>produits commandé</th>
+                                        <th>quantité</th>
+                                        <th>prix unitaire</th>                                                             
+                                        <th>prix total</th>
+                                    </tr> 
+                                     <tbody>
+								
+<!--
+								Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client 
+								idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
+-->
+										 
                                     <?php
-                                    foreach ($utilisateurs as $u) {
+                                    foreach ($archives as $u) {
                                         echo '<tr>'
-                                            ,'<td>',$u['login'],'</td>'
-                                            ,'<td>',$u['utilisateurtype_id'],'</td>'
-                                            ,'</tr>';
+                                            ,'<td>',$u['date'],'</td>'
+     										,'<td>',$u['nom'],$u['prenom'],'</td>'
+     										,'<td>',$u['nom'],$u['prenom'],'</td>'
+     										,'<td>',$u['libelle'],'</td>'
+     										,'<td>',$u['quantité'],'</td>'
+     										,'<td>',$u['montant'],'</td>';
+     										//~ ,'<td>',,'</td>'
+                                            //~ ,'</tr>';
                                     }
                                     ?>
                                 </tbody>
                             </table>
-
+                                </thead>
+                              
+							<br />
                         </div>
                     </div>
 

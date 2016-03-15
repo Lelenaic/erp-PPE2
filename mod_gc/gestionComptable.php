@@ -19,43 +19,19 @@ function formDevis_route(){
     include(ROOT.'AdminLTE/form.php');    
     
     
-/*
-   if(isset($_POST['bouton_pdf']))
-	{
-	require('fpdf.php');
 
-	$pdf = new FPDF();
-	$pdf->AddPage();
-	$pdf->SetFont('Arial');
-	$pdf->Cell(40,10,'IDENTIFICATION DU CHANTIER : ');
-	$pdf->Cell(100,10,$_POST['num_chantier']);
-	$pdf->Ln();
-	$pdf->Cell(40,10,'Nom du chantier : ');
-	$pdf->Cell(100,10,$_POST['nom_chantier']);
-	$pdf->Ln();
-
-
-
-
-	$pdf->Output();
-	}
-	else
-	{
-	?>
-
-	<form action="#ok" method="post">
-
-	<input type="submit" name="bouton_pdf">
-	</form> */
 }
 
-//<?
+/*
+Fonction pour appelé dans la base de données les informations pour la liste des factures et pour l'archive.
+*/ 
+
 
 function listeFacture_route(){
     $utilisateurs=Connexion::table('select login,utilisateurtype_id from utilisateur order by login');
     include(ROOT.'mod_gc/listeFacture.php');
 }
 function listeArchive_route(){
-    $utilisateurs=Connexion::table('select login,utilisateurtype_id from utilisateur order by login');
+    $archives=Connexion::table('select * from archiveDevis');
     include(ROOT.'mod_gc/listeArchive.php');
 }
