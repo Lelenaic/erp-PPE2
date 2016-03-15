@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title><?php echo Liste; ?></title>
+        <title> <?php echo titreApplication; ?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -85,8 +85,6 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des Clients
-                        Liste des Prospects
                         Liste des Prospects
                     </h1>
                 </section>
@@ -106,6 +104,9 @@
                                         <th>Ville</th>
                                         <th>Mail</th>
                                         <th>Téléphone</th>
+                                        <th>Entreprise</th>
+                                        <th>Modification</th>
+                                        <th>Suppression</th>
                                         
                                     </tr>
                                         
@@ -120,8 +121,11 @@
                                             ,'<td>',$u['adresse'],'</td>'    
                                             ,'<td>',$u['codePostal'],'</td>'    
                                             ,'<td>',$u['ville'],'</td>'    
-                                            ,'<td>',$u['mail'],'</td>'   
+                                            ,'<td>',$u['mail'],'</td>'  
                                             ,'<td>',$u['numTelephone'],'</td>'    
+                                           ,'<td>',$u['libelle'],'</td>'
+                                            ,'<td>','<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#'.$u['id'].'">Modifier</button>','</td>'
+                                            ,'<td>','<a href="index.php?route=prospect_listeIndex_deleteProspect&id='.$u['id'].'"><i class="fa fa-trash fa-3x"></i></a>','</td>'
                                             ,'</tr>';
                                     }
                                     ?>
@@ -134,7 +138,50 @@
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
+        <?php
+        foreach ($prospect as $u) {
+         // $poste_id=Connexion::table('select libelle from poste where id='.$employe[$i]['poste_id'].'');
+         // $entreprise_id=Connexion::table('select libelle from organisation where id='.$employe[$i]['entreprise_id'].'');
+          echo '<div id="'.$u['id'].'" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modifier Prospect</h4>
+                </div>
+                <div class="modal-body">';
+                    $nom['value']=$u['nom'];
+                    $prenom['value']=$u['prenom'];
+                    $adresse['value']=$u['adresse'];
+                    $codePostal['value']=$u['codePostal'];
+                    $ville['value']=$u['ville'];
+                    $mail['value']=$u['mail'];
+                    $num['value']=$u['numTelephone'];
+                    $form = new FormBootstrap('Client');
+                    $form->addHidden('route', 'prospect_listeIndex_validModif');
+                    $form->addHidden('id', $u['id']);
+                    $form->addText('nom',$nom, 'Nom');
+                    $form->addText('prenom',$prenom, 'Prénom');
+                    $form->addText('adresse',$adresse, 'Adresse');
+                    $form->addText('codePostal',$codePostal, 'Code Postal');
+                    $form->addText('ville',$ville, 'Ville');
+                    $form->addEmail('mail', $mail,'Adresse Mail');
+                    $form->addNumeric('numTel',$num,'Numéro de Téléphone');
+                    echo $form->table(); 
 
+          
+          
+      
+                echo '</div>
+               <div class="modal-footer">
+                
+                  <button type="button" class="btn btn-info btn" data-dismiss="modal">Fermer</button>
+                </div>
+              </div>
+            </div>
+          </div>';
+        }
+?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
@@ -176,4 +223,3 @@
         </script>
     </body>
 </html>
-
