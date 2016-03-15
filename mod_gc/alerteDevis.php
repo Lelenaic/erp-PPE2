@@ -85,67 +85,43 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des utilisateurs
+                        Tableau de bord
                     </h1>
+                    <div class="alert alert-success">
+                       <strong>Success!</strong> 
+                       <?php //$devisId=$_POST['id'];
+							$init=0;
+							$produits=array();
+							while (isset($_POST['produit_id'.$init])){
+								$produits[]=$_POST['produit_id'.$init];
+								$init++;
+							}
+							$requete='SELECT MAX(id) AS "id" from devis';
+							$devisId=Connexion::queryFirst($requete);
+							$quantite=$_POST['quantite'];
+							foreach ($produits as $line){
+								$query2='INSERT INTO ligneDevis (id,produit_id, quantite, devis_id) VALUES (NULL,"'.$line.'", "'.$quantite.'","'.$devisId['id'].'")';
+								Connexion::exec($query2);
+							}
+							?>
+                    </div>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <table id="example2" class="table table-bordered table-hover datatable">
-                                <thead>
-                                    
-                                    <tr>
-                                        <th>id archives</th>
-                                        <th>date</th> 
-                                    </tr>
-                               <tbody>
-                                    // code qui créer le tableau de l’archive
-<tr>
-                                       <th>date</th><br />                                       
-                                       <th>nom client</th><br />
-                                       <th>nom employé</th><br />
-                                       <th>produits commandé</th>
-                                       <th>quantité</th>
-                                       <th>prix unitaire</th>                                                            
-                                       <th>prix total</th>
-                                   </tr>
-                                    <tbody>
-                              
-<!--
-                               Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client
-                               idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
--->
-                                      
-                                   <?php
-                                   foreach ($archives as $u) {
-                                       echo '<tr>';
-                                       echo '<td>',$u['date'],'</td>';
-                                         echo'<td><a href="infosClient.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
-                                         echo'<td><a href="infosEmploye.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
-                                         echo'<td>',$u['libelle'],'</td>';
-                                         echo'<td>',$u['quantité'],'</td>';
-                                         echo'<td><b>',$u['montant'],'</b></td>';
-                                   }
-                                     ?>
-
-                                </thead>
-                            </table>
-
-                        </div>
-                    </div>
-
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
+
+        <!-- add new calendar event modal -->
+
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
         <!-- Morris.js charts -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-        <!-- <script src="./AdminLTE/js/plugins/morris/morris.min.js" type="text/javascript"></script> -->
+        <script src="./AdminLTE/js/plugins/morris/morris.min.js" type="text/javascript"></script>
         <!-- Sparkline -->
         <script src="./AdminLTE/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
         <!-- jvectormap -->
@@ -162,22 +138,16 @@
         <!-- iCheck -->
         <script src="./AdminLTE/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
-        <!-- DATA TABES SCRIPT -->
-        <script src="./AdminLTE/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="./AdminLTE/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-
         <!-- AdminLTE App -->
         <script src="./AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
 
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <!-- <script src="./AdminLTE/js/AdminLTE/dashboard.js" type="text/javascript"></script> -->
+        <script src="./AdminLTE/js/AdminLTE/dashboard.js" type="text/javascript"></script>
 
         <!-- AdminLTE for demo purposes -->
         <script src="./AdminLTE/js/AdminLTE/demo.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(function () {
-                $(".datatable").dataTable();
-            });
-        </script>
+
     </body>
+</html>
+</html>
 </html>
