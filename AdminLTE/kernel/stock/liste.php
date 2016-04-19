@@ -95,23 +95,29 @@
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
-                                    <tr>
+                                   <tr>
                                         <th>produit</th>
                                         <th>quantite</th>
                                         <th>organisation</th>
                                     </tr>
-                                        
-                                </thead>
                                 <tbody>
+                                    
                                     <?php
                                     foreach ($stock as $u) {
-                                        if (isset($_POST['id']))
+                                        /*if (isset($_POST['id']))
+                                            {
+                                            
+                                            }
+                                        if ($_POST['id']==$u['id'])
                                        {
+                                            
                                             $form=new FormBootstrap();
-                                            $form->addHidden('route','produit_ajouter_route');
-                                            $form->addText('quantite', array(), 'Quantité');
+                                            echo '<td>';
+                                            $form->addText('produit', array(), 'Produit');
+                                            echo '<td>';
                                             $produit=Connexion::table('select libelleProduit from produit');
-                                            $list=array();
+                                            $list=array();                                            
+                                            echo '</td>';
                                             foreach ($produit as $ut){
                                                 $list[]=$ut['libelleProduit'];
                                             }
@@ -122,18 +128,21 @@
                                                 $list2[]=$ut['libelle'];
                                             }
                                             $form->addSelect('organisation', $list2, array(), 'Organisation');
-                                            // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
+                                            echo $form->table();
+
                                         }
                                         else 
-                                        {
-                                            echo '<tr>'
+                                        {*/
+                                            echo '
+                                        
+                                              </thead>'
                                             ,'<td>',$u['libelleProduit'],'</td>'
                                             ,'<td>',$u['quantite'],'</td>'
                                             ,'<td>',$u['libelle'],'</td>'
                                             ,'<td> <form method ="post" action="?route=produit_liste_stock"><input type="hidden" name = "id" value="'.$u['id'].'"/>
                                                 <button class="btn btn-primary" type="submit">Modifier</button> </form></td>'
                                             ,'</tr>'; 
-                                        }
+                                        //}
                                     }
                                     ?>
                                 </tbody>
