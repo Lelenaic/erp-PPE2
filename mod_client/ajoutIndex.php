@@ -3,13 +3,7 @@
      // Iitilaisation du formulaire
     $form = new FormBootstrap('Client');
     $form->addHidden('route', 'client_ajoutIndex_valid');
-    $form->addText('nom', array(), 'Nom');
-    $form->addText('prenom',array(), 'Prénom');
-    $form->addText('adresse',array(), 'Adresse');
-    $form->addText('codePostal',array(), 'Code Postal');
-    $form->addText('ville',array(), 'Ville');
-    $form->addEmail('mail', array(),'Adresse Mail');
-    $form->addNumeric('numTel',array(),'Numéro de Téléphone');
+    
     if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
     {
         $entreprises=  Connexion::table('SELECT libelle FROM organisation');
