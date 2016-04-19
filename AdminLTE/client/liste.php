@@ -132,7 +132,6 @@
                                 </tbody>
                             </table>
                             <a href="index.php?route=prospect_listeIndex_index"><i class="fa fa-paw fa-3x"></i></a>
-                                
                         </div>
                     </div>
 
