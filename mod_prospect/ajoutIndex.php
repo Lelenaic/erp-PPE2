@@ -9,6 +9,15 @@ function index_route(){
     $form->addText('ville',array(), 'Ville');
     $form->addEmail('mail', array(),'Adresse Mail');
     $form->addNumeric('numTel',array(),'Numéro de Téléphone');
+    if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
+    {
+        $entreprises=  Connexion::table('SELECT libelle FROM organisation');
+        $list=array();
+        foreach ($entreprises as $ut){
+            $list[]=$ut['libelle'];
+        }
+        $form->addSelect('organisation', $list, array(), 'Organisation');
+    }
      include(ROOT.'AdminLTE/form.php');
 }
 
@@ -20,8 +29,21 @@ function valid_route(){
     $ville=$_POST['ville'];
     $mail=$_POST['mail'];
     $numTel=$_POST['numTel'];
-    $query='INSERT INTO prospect (nom, prenom, adresse, codePostal, ville, mail, numtelephone)'
-            . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', '".$mail."', '".$numTel."')";
+    if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
+    { 
+        $organisation=$_POST['organisation'];
+        $organisationRecupId=Connexion::queryFirst("SELECT id FROM organisation WHERE libelle='".$organisation."'");
+        $organisationId = $organisationRecupId['id'];
+        
+    }
+    else
+    {
+        $organisationId = $_SESSION['utilisateur']['entreprise_id'];
+    }
+    
+    
+    $query='INSERT INTO prospect (nom, prenom, adresse, codePostal, ville, entreprise_id, mail, numtelephone)'
+            . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', ".$organisationId.", '".$mail."', '".$numTel."')";
     Connexion::exec($query);
     include(ROOT.'AdminLTE/alerte.php');
     

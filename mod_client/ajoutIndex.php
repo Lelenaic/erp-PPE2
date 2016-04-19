@@ -11,14 +11,16 @@ function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville=""
     $form->addText('ville',array(), 'Ville');
     $form->addEmail('mail', array(),'Adresse Mail');
     $form->addNumeric('numTel',array(),'Numéro de Téléphone');
-    $entreprises=  Connexion::table('select libelle from organisation');
-    $list=array();
-    foreach ($entreprises as $ut){
-        $list[]=$ut['libelle'];
+    if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
+    {
+        $entreprises=  Connexion::table('SELECT libelle FROM organisation');
+        $list=array();
+        foreach ($entreprises as $ut){
+            $list[]=$ut['libelle'];
+        }
+        $form->addSelect('organisation', $list, array(), 'Organisation');
     }
-    $form->addSelect('organisation', $list, array(), 'Votre organisation');
-    
-     include(ROOT.'AdminLTE/form.php');  
+    include(ROOT.'AdminLTE/form.php');  
 }
 
 function valid_route()
@@ -31,8 +33,18 @@ function valid_route()
     $ville=$_POST['ville'];
     $mail=$_POST['mail'];
     $numTel=$_POST['numTel'];
-    $organisation=$_POST['organisation'];
-    $organisationId=Connexion::queryFirst("SELECT id FROM organisation where libelle='".$organisation."'");
+    if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
+    { 
+        $organisation=$_POST['organisation'];
+        $organisationRecupId=Connexion::queryFirst("SELECT id FROM organisation WHERE libelle='".$organisation."'");
+        $organisationId = $organisationRecupId[id];
+    }
+    else
+    {
+        $organisationId = $_SESSION['utilisateur']['entreprise_id'];
+    }
+  
+    
     
     //vérification si aucune zone de texte est restée vide pour envoi à la BDD.
     if ($nom !="" and $prenom!="" and $adresse!="" and $codePostal!="" and $ville!="" and $mail!="" and $numTel!="") 

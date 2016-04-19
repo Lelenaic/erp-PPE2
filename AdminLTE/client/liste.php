@@ -116,7 +116,7 @@
                                     foreach ($client as $u) {
                                         echo '<tr>'
                                             ,'<td>',$u['id'],'</td>'
-                                            ,'<td>',$u['nom'],'</td>'
+                                            ,'<td><a href="index.php?route=gc_gestionComptable_listeFacture&clientId='.$u['id'].'">'.$u['nom'].'</a></td>'
                                             ,'<td>',$u['prenom'],'</td>'
                                             ,'<td>',$u['adresse'],'</td>'    
                                             ,'<td>',$u['codePostal'],'</td>'    
@@ -125,46 +125,14 @@
                                             ,'<td>',$u['numTelephone'],'</td>'    
                                             ,'<td>',$u['libelle'],'</td>'
                                             ,'<td>','<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#'.$u['id'].'">Modifier</button>','</td>'
-                                            ,'<td>','<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-trash fa-3x"></i></a>','</td>'
+                                            ,'<td>','<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#'.$u['id'].'supprimer">Supprimer</button>','</td>'
                                             ,'</tr>';
                                     }
                                     ?>
                                 </tbody>
                             </table>
-                                <table id="example2" class="table table-bordered table-hover datatable">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nom</th>
-                                            <th>Prénom</th>
-                                            <th>adresse</th>
-                                            <th>Code Postal</th>
-                                            <th>Ville</th>
-                                            <th>Mail</th>
-                                            <th>Téléphone</th>
-
-                                        </tr>
-
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        foreach ($client as $u) {
-                                            echo '<tr>'
-                                                ,'<td>',$u['id'],'</td>'
-                                                ,'<td>',$u['nom'],'</td>'
-                                                ,'<td>',$u['prenom'],'</td>'
-                                                ,'<td>',$u['adresse'],'</td>'    
-                                                ,'<td>',$u['codePostal'],'</td>'    
-                                                ,'<td>',$u['ville'],'</td>'    
-                                                ,'<td>',$u['mail'],'</td>'   
-                                                ,'<td>',$u['numTelephone'],'</td>'
-                                                ,'<td>','<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-trash"></i></a>'
-                                                     //  ,'<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-pencil"></i></a>','</td>'   
-                                                ,'</tr>';
-                                        }
-                                         ?>
-                                    </tbody>
-                                </table>
+                            <a href="index.php?route=prospect_listeIndex_index"><i class="fa fa-paw fa-3x"></i></a>
+                                
                         </div>
                     </div>
 
@@ -212,6 +180,45 @@
                 </div>
               </div>
             </div>
+          </div>';
+        }
+         foreach ($client as $u) {
+          echo '<div id="'.$u['id'].'supprimer" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Supprimer Client</h4>
+                </div>
+                <div class="modal-body">';
+                    $nom['value']=$u['nom'];
+                    $prenom['value']=$u['prenom'];
+                    $adresse['value']=$u['adresse'];
+                    $codePostal['value']=$u['codePostal'];
+                    $ville['value']=$u['ville'];
+                    $mail['value']=$u['mail'];
+                    $num['value']=$u['numTelephone'];
+                    echo '<b>Nom :</b> <center>', $nom['value'], '</center><br />';
+                    echo '<b>Prénom :</b> <center>', $prenom['value'], '</center><br />';
+                    echo '<b>Adresse :</b> <center>', $adresse['value'], '</center><br />';
+                    echo '<b>Code Postal :</b> <center>', $codePostal['value'], '</center><br />';
+                    echo '<b>Ville :</b> <center>', $ville['value'], '</center><br />';
+                    echo '<b>Adresse Mail :</b> <center>', $mail['value'], '</center><br />';
+                    echo '<b>Numéro de Téléphone :</b> <center>', $num['value'], '</center><br />';
+                    echo '<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><button type="button" class="btn btn-info btn">Supprimer</button></a>';
+
+          
+          
+      
+                echo '</div>
+                    
+               <div class="modal-footer">
+                
+                  <button type="button" class="btn btn-info btn" data-dismiss="modal">Fermer</button>
+                </div>
+              </div>
+            </div>
+            <i class="fa fa-thumbs-o-up fa-3x"></i>
           </div>';
         }
 ?>
