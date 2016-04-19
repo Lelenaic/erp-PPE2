@@ -28,6 +28,7 @@
     }
     
     // Créer un menu déroulant avec la liste des entreprises
+    
     if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
     {
         $entreprises=  Connexion::table('SELECT libelle FROM organisation');
@@ -51,8 +52,8 @@ function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville=""
     
 }
 
-function valid_route(){
-
+function valid_route()
+{
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
     $adresse=$_POST['adresse'];
@@ -60,17 +61,21 @@ function valid_route(){
     $ville=$_POST['ville'];
     $mail=$_POST['mail'];
     $numTel=$_POST['numTel'];
-
+    
     if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
     { 
         $organisation=$_POST['organisation'];
         $organisationRecupId=Connexion::queryFirst("SELECT id FROM organisation WHERE libelle='".$organisation."'");
         $organisationId = $organisationRecupId['id'];
+        
     }
     else
     {
         $organisationId = $_SESSION['utilisateur']['entreprise_id'];
     }
+    
+    $query='INSERT INTO prospect (nom, prenom, adresse, codePostal, ville, entreprise_id, mail, numtelephone)'
+            . "VALUES ('".$nom."', '".$prenom."', '".$adresse."', '".$codePostal."', '".$ville."', ".$organisationId.", '".$mail."', '".$numTel."')";
 
     $organisationId=Connexion::queryFirst("SELECT id FROM organisation where libelle='".$organisation."'");
 

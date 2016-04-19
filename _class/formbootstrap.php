@@ -16,7 +16,7 @@ class FormBootstrap extends Form {
         }
 
         if ($this->_buttons) {
-            $table.='<button type="submit" class="btn btn-default">' . _('Submit') . '</button>';
+            $table.='<button type="submit" class="btn btn-info">' . _('Valider') . '</button>';
         }
         $table.='</form>';
         return $table;
@@ -35,7 +35,7 @@ class FormBootstrap extends Form {
                     </div>';
         }
         if ($this->_buttons) {
-            $table.='<button type="submit" class="btn btn-default">' . _('Submit') . '</button>';
+            $table.='<button type="submit" class="btn btn-info">' . _('Valider') . '</button>';
         }
         $table.='</form>';
         return $table;

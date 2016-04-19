@@ -3,6 +3,23 @@
      // Iitilaisation du formulaire
     $form = new FormBootstrap('Client');
     $form->addHidden('route', 'client_ajoutIndex_valid');
+    $form->addText('nom', array(), 'Nom');
+    $form->addText('prenom',array(), 'Prénom');
+    $form->addText('adresse',array(), 'Adresse');
+    $form->addText('codePostal',array(), 'Code Postal');
+    $form->addText('ville',array(), 'Ville');
+    $form->addEmail('mail', array(),'Adresse Mail');
+    $form->addNumeric('numTel',array(),'Numéro de Téléphone');
+    if ($_SESSION['utilisateur']['utilisateurtype_id'] == 1)
+    {
+        $entreprises=  Connexion::table('SELECT libelle FROM organisation');
+        $list=array();
+        foreach ($entreprises as $ut){
+            $list[]=$ut['libelle'];
+        }
+        $form->addSelect('organisation', $list, array(), 'Organisation');
+    }
+    include(ROOT.'AdminLTE/form.php');
     $form->addHidden('rappel', 'true');
     //var_dump($tableAjout);
     if($erreur)
@@ -48,7 +65,7 @@
 function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville="", $mail="", $numTel="", $erreur=0)
 {
     formulaire([]);
-         include(ROOT.'AdminLTE/form.php');  
+         include(ROOT.'AdminLTE/form.php');
 }
 
 function valid_route()
@@ -71,10 +88,9 @@ function valid_route()
     {
         $organisationId = $_SESSION['utilisateur']['entreprise_id'];
     }
-
     $organisation=$_POST['organisation'];
     $organisationId=Connexion::queryFirst("SELECT id FROM organisation where libelle='".$organisation."'");
-
+    
     //vérification si aucune zone de texte est restée vide pour envoi à la BDD.
     if ($nom !="" and $prenom!="" and $adresse!="" and $codePostal!="" and $ville!="" and $mail!="" and $numTel!="") 
     {
