@@ -3,8 +3,8 @@
 function formAjouter_route(){
     $form=new FormBootstrap();
     $form->addHidden('route','grh_employe_ajouter');
-    $form->addText('nom', array(), 'Nom');
-    $form->addText('prenom', array(), 'Prénom');
+    $form->addText('nom', array(), 'NomEmploye');
+    $form->addText('prenom', array(), 'PrénomEmploye');
     $form->addDate('dateNaissance', array(), 'Date de naissance');
     $poste= Connexion::table('select * from poste');
     $list=array();
@@ -34,8 +34,8 @@ function formAjouter_route(){
 
 //ajouter_route
 function ajouter_route(){
-            $nom=$_POST['nom'];
-            $prenom=$_POST['prenom'];
+            $nom=$_POST['nomEmploye'];
+            $prenom=$_POST['prenomEmploye'];
             $dateNaissance=$_POST['dateNaissance'];
             $dateNaissance=explode('/',$dateNaissance);
             $newDateNaissance=$dateNaissance[2].'-'.$dateNaissance[1].'-'.$dateNaissance[0];
@@ -69,8 +69,8 @@ function modifier_route()
             $securiteSociale=$_POST['securiteSociale'];
             $organisation=$_POST['organisation'];
             $query2="UPDATE employe SET
-                    nom = '".$nom."',
-                    prenom = '".$prenom."',
+                    nomEmploye = '".$nom."',
+                    prenomEmploye = '".$prenom."',
                     dateNaissance = '".$dateNaissance."',
                     poste_id = '".$poste."',
                     numero = '".$numero."',
