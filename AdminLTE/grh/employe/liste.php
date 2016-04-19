@@ -120,8 +120,8 @@
                                         $entreprise_id=Connexion::table('select libelle from organisation where id='.$employe[$i]['entreprise_id'].'');
                                         echo '<tr>'
                                             ,'<td>',$employe[$i]['id'],'</td>'
-                                            ,'<td>',$employe[$i]['nom'],'</td>'
-                                            ,'<td>',$employe[$i]['prenom'],'</td>'
+                                            ,'<td>',$employe[$i]['nomEmploye'],'</td>'
+                                            ,'<td>',$employe[$i]['prenomEmploye'],'</td>'
                                             ,'<td>',$employe[$i]['dateNaissance'],'</td>'
                                             ,'<td>',$poste_id[0]['libelle'],'</td>'
                                             ,'<td>',$employe[$i]['numero'],'</td>'
