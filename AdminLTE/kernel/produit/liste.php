@@ -106,10 +106,10 @@
                                 <tbody>
                                     <?php
                                     foreach ($produits as $u) {
-                                        if (isset($_POST['id'])){
-                                           $form=new FormBootstrap();
-    
+                                        /*if ($_POST['id']==$u['id']){
+                                            $form=new FormBootstrap();
                                             $form->addHidden('route','produit_ajouter_route');
+                                            
                                             $form->addText('quantite', array(), 'Quantité');
 
                                             $produit=Connexion::table('select libelleProduit from produit');
@@ -126,7 +126,7 @@
                                             $form->addSelect('organisation', $list2, array(), 'Organisation');
                                             // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
                                             echo $form->table(); 
-                                        }else{
+                                        }else{*/
                                         echo '<tr>'
                                             ,'<td>',$u['libelleProduit'],'</td>'
                                             ,'<td>',$u['reference'],'</td>'
@@ -136,7 +136,7 @@
                                             <button class="btn btn-primary" type="submit">Modifier</button> </form></td>'   
                                             ,'</tr>';
                                             
-                                        }
+                                        //}
                                     }
                                     ?>
 
