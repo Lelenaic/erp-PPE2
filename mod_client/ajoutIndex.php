@@ -11,9 +11,7 @@
         foreach ($entreprises as $ut){
             $list[]=$ut['libelle'];
         }
-        $form->addSelect('organisation', $list, array(), 'Organisation');
     }
-    include(ROOT.'AdminLTE/form.php');
     $form->addHidden('rappel', 'true');
     //var_dump($tableAjout);
     if($erreur)
@@ -59,7 +57,6 @@
 function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville="", $mail="", $numTel="", $erreur=0)
 {
     formulaire([]);
-         include(ROOT.'AdminLTE/form.php');
 }
 
 function valid_route()
