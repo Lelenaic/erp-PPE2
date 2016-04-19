@@ -47,7 +47,7 @@ function ajouter_route(){
             $adresse=$_POST['adresse'];
             $securiteSociale=$_POST['securiteSociale'];
             $organisation=$_POST['organisation'];
-            $query='insert into employe(nom,prenom,dateNaissance,poste_id,numero,mail,ville,codePostal,adresse,securiteSociale,entreprise_id)
+            $query='insert into employe(nomEmploye,prenomEmploye,dateNaissance,poste_id,numero,mail,ville,codePostal,adresse,securiteSociale,entreprise_id)
             values("'.$nom.'","'.$prenom.'","'.$newDateNaissance.'","'.$poste.'","'.$numero.'","'.$mail.'","'.$ville.'","'.$codePostal.'","'.$adresse.'","'.$securiteSociale.'","'.$organisation.'")';
             Connexion::exec($query);
             header('Location:.?route=grh_employe_liste');
