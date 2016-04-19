@@ -4,6 +4,7 @@
     $form = new FormBootstrap('Client');
     $form->addHidden('route', 'client_ajoutIndex_valid');
     $form->addHidden('rappel', 'true');
+    //var_dump($tableAjout);
     if($erreur)
     {
         //Formulaire d'enregistrement d'un client si l'utilisateur n'a pas remplis tous les champs.   
@@ -13,7 +14,7 @@
         $form->addText('codePostal',array($tableAjout[3]), 'Code Postal');
         $form->addText('ville',array($tableAjout[4]), 'Ville');
         $form->addEmail('mail', array($tableAjout[5]),'Adresse Mail');
-        $form->addNumeric('numTel',array($tableAjout[6]),'Numéro de Téléphone');    
+        $form->addNumeric('numTel',array($tableAjout[6]),'Numéro de Téléphone');
     }
     else
     {
@@ -86,6 +87,7 @@ function valid_route()
     else    
     {
         $tableAjout=[$nom,$prenom,$adresse,$codePostal,$ville,$mail,$numTel,$organisation];
+        
         formulaire($tableAjout, true);
     }
 }

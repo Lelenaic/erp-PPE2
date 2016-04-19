@@ -105,7 +105,7 @@
                             <div class="alert alert-danger alert-dismissable">
                                 <i class="fa fa-ban"></i>
                                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                <b>Attention!</b> <?php echo 'Tous les champs ne sont pas remplis.'; ?>.
+                                <b>Attention!</b> <?php echo 'Tous les champs ne sont pas remplis'; ?>.
                             </div>
                         <?php
                         }

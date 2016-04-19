@@ -88,7 +88,7 @@
                         Tableau de bord
                     </h1>
                     <div class="alert alert-success">
-                       <strong>Success!</strong> <?php echo $_POST['prenom'];?>
+                       <strong>Réussi!</strong> <?php echo $_POST['nom']," ",$_POST['prenom'], " a bien été enregistré.";?>
                     </div>
                 </section>
 
