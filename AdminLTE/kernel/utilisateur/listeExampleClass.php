@@ -1,4 +1,4 @@
-l<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -94,63 +94,27 @@ l<!DOCTYPE html>
                     <div class="row">
                         <div class="col-xs-12">
                             <form method="POST" action="?route=kernel_utilisateur_liste">
-                                <table id="example2" class="table table-bordered table-hover datatable">
-                                    <thead>
-                                        <tr>
-                                            <th>login</th>
-                                            <th>mot de passe</th>
-                                            <th>secteur</th>
-                                            <th>entreprise</th>
-                                            <th>modification</th>
-                                            <th>supression</th>
-                                        </tr>
-
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        if(isset($_POST['modifier'])){
-                                            var_dump($_POST['entreprise']);
-                                            foreach ($utilisateurs as $u) {
-                                                if($_SESSION['utilisateur']['login']==$u['login']){
-                                                    echo '<tr>'
-                                                        ,'<td><input type="text" value="'.$u['login'].'"/></td>'
-                                                        ,'<td><input type="text" value=""/></td>'
-                                                        ,'<td><input type="text" value="'.$u['secteur'].'"/></td>'
-                                                        ,'<td><input type="text" value="'.$u['entreprise'].'"/></td>'
-                                                           , '<td><input type="hidden" name="login" value="'.$u['login'].'"/><input type="hidden" name="secteur" value="'.$u['secteur'].'"/><input type="hidden" name="entreprise" value="'.$u['entreprise'].'"/><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Modifier </button></td>'
-                                                           ,'<td><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Annuler </button></td>'
-                                                        ,'</tr>';
-                                                }else{
-                                                    echo '<tr>'
-                                                        ,'<td>',$u['login'],'</td>'
-                                                        ,'<td>•••••</td>'
-                                                        ,'<td>',$u['secteur'],'</td>'
-                                                        ,'<td>',$u['entreprise'],'</td>'
-                                                           , '<td><input type="hidden" name="login" value="'.$u['login'].'"/><input type="hidden" name="secteur" value="'.$u['secteur'].'"/><input type="hidden" name="entreprise" value="'.$u['entreprise'].'"/><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Modifier </button></td>'
-                                                           ,'<td></td>'
-                                                        ,'</tr>';
-                                                }
-                                                
-                                            }
-                                            
-                                                }else{
-                                                foreach ($utilisateurs as $u) {
-                                               
-                                                    echo '<tr>'
-                                                        ,'<td>',$u['login'],'</td>'
-                                                        ,'<td>•••••</td>'
-                                                        ,'<td>',$u['secteur'],'</td>'
-                                                        ,'<td>',$u['entreprise'],'</td>'
-                                                           , '<td><input type="hidden" name="login" value="'.$u['login'].'"/><input type="hidden" name="secteur" value="'.$u['secteur'].'"/><input type="hidden" name="entreprise" value="'.$u['entreprise'].'"/><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Modifier </button></td>'
-                                                           ,'<td></td>'
-                                                        ,'</tr>';
-                                               
-                                                
-                                            }
+                                    <?php
+                                        $class='table table-bordered table-hover datatable';
+                                        $id='example2';
+                                        $tablHead=['Login','Mot de passe','Secteur','Entreprise','Modification','Annuler'];
+                                        $tablNomColonne=['login','password','label','libelle'];
+                                        $tablButton=['<button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Modifier </button>'];
+                                        $requeteTable='SELECT login, password, utilisateurtype.label, organisation.libelle
+                                                        FROM utilisateur, utilisateurtype, organisation
+                                                        WHERE utilisateur.utilisateurtype_id=utilisateurtype.id
+                                                        AND utilisateur.entreprise_id=organisation.id';
+                                        $tabl=Connexion::table($requeteTable);
+                                        $tableau=new Table($tabl,$tablHead,$id,$class,$tablNomColonne);
+                                        
+                                        if(isset($_POST['login'])){
+                                            $tableau->tableModif();
+                                            $tableau->affichTable();
+                                        }else{
+                                            $tableau->creaTableModif();
+                                            $tableau->affichTable();
                                         }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                    ?>
                             </form>
                         </div>
                     </div>
