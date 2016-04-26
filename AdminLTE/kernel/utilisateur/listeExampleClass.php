@@ -1,5 +1,3 @@
-<<<<<<< HEAD:AdminLTE/kernel/utilisateur/listeExampleClass.php
-=======
 <?php
 function liste($liste,$nom,$table){
     $deroulant='<select name="'.$nom.'">';
@@ -13,8 +11,6 @@ function liste($liste,$nom,$table){
 }
 ?>
 
-
->>>>>>> 5e23d6dde66196a58be62e1e7c32ec63b1bed39b:AdminLTE/kernel/utilisateur/liste.php
 <!DOCTYPE html>
 <html>
     <head>
@@ -110,7 +106,6 @@ function liste($liste,$nom,$table){
                 <section class="content">
                     <div class="row">
                         <div class="col-xs-12">
-<<<<<<< HEAD:AdminLTE/kernel/utilisateur/listeExampleClass.php
                             <form method="POST" action="?route=kernel_utilisateur_liste">
                                     <?php
                                         $class='table table-bordered table-hover datatable';
@@ -134,7 +129,6 @@ function liste($liste,$nom,$table){
                                         }
                                     ?>
                             </form>
-=======
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
                                     <tr>
@@ -197,7 +191,6 @@ function liste($liste,$nom,$table){
                                     ?>
                                 </tbody>
                             </table>
->>>>>>> 5e23d6dde66196a58be62e1e7c32ec63b1bed39b:AdminLTE/kernel/utilisateur/liste.php
                         </div>
                     </div>
 
