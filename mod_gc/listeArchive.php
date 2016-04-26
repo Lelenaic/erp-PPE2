@@ -94,8 +94,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
-                                <thead>
-<<<<<<< HEAD
+									<thead>
                                      <tr>
                                         <th>date</th><br />                                        
                                         <th>nom client</th><br />
@@ -104,7 +103,8 @@
                                         <th>quantité</th>
                                         <th>prix unitaire</th>                                                             
                                         <th>prix total</th>
-                                    </tr> 
+                                     </tr> 
+                                   </thead>
                                      <tbody>
 								
 <!--
@@ -114,55 +114,17 @@
 										 
                                     <?php
                                     foreach ($archives as $u) {
-                                        echo '<tr>'
-                                            ,'<td>',$u['date'],'</td>'
-     										,'<td>',$u['nom'],$u['prenom'],'</td>'
-     										,'<td>',$u['nom'],$u['prenom'],'</td>'
-     										,'<td>',$u['libelle'],'</td>'
-     										,'<td>',$u['quantité'],'</td>'
-     										,'<td>',$u['montant'],'</td>';
-     										//~ ,'<td>',,'</td>'
-                                            //~ ,'</tr>';
-=======
-                                    
-                                    <tr>
-                                        <th>id archives</th>
-                                        <th>date</th> 
-                                    </tr>
-                               <tbody>
-                                    <?php
-                                    foreach ($archives as $u) {
-                                        echo '<tr>'
-                                            ,'<td>',$u['id'],'</td>'
-                                            ,'<td>',$u['date'],'</td>'
-                                            ,'</tr>';
->>>>>>> 84413cbaa00f252d733956fd1eb027bb70d0bb64
-                                    }
-                                    ?>
-                                </tbody>
-                                    <tr>
-                                        <th>nom client</th>                                        
-                                        <th>prenom client</th>                                        
-                                        <th>adresse client</th>                                        
-                                        <th>code postal client</th>                                        
-                                        <th>ville client</th>                                        
-                                        <th>entreprise client</th>                                        
-                                        <th>mail client</th>                                        
-                                        <th>numtelephone client</th>
-                                    </tr>
-<!--
-                                    <tr>
-                                        <th>libelle</th>
-                                        <th>numero</th>
-                                        <th>mail</th>
-                                        <th>ville</th>                                        
-                                        <th>code postal</th>
-                                        <th>adresse</th>
-                                    </tr>
--->
-                                </thead>
+                                        echo '<tr>';
+                                        echo '<td>',$u['date'],'</td>';
+     									echo'<td><a href="infosClient.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
+     									echo'<td><a href="infosEmploye.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
+     									echo'<td>',$u['libelle'],'</td>';
+     									echo'<td>',$u['quantité'],'</td>';
+     									echo'<td><b>',$u['montant'],'</b></td>';
+									}
+     								?>	
+									</tbody>
                             </table>
-                                </thead>
                               
 							<br />
                         </div>

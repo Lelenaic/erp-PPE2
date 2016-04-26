@@ -22,10 +22,18 @@ function formDevis_route(){
     foreach ($produit as $ut){
         $list2[$ut['id']]=$ut['libelle'];
     }
+    $form->addSelect('produit_id', $list2, array(), 'Nom du produit');
+    $validation=  Connexion::table('select * from validation');
+    foreach ($validation as $ut){
+        $list3[$ut['id']]=$ut['libelle'];
+    }
+    $form->addSelect('validation_id', $list3, array(), 'Validation');
+    $form->addText('quantite', array(), 'Quantité');
+    $form->addText('prix', array(), 'Prix');
+//ajouter route
     
     // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
     include(ROOT.'AdminLTE/form.php');    
-<<<<<<< HEAD
     
     
 
@@ -36,30 +44,30 @@ Fonction pour appelé dans la base de données les informations pour la liste de
 */ 
 
 
-=======
-}
-$form->addSelect('produit_id', $list2, array(), 'Nom du produit');
-    $validation=  Connexion::table('select * from validation');
-    foreach ($validation as $ut){
-        $list3[$ut['id']]=$ut['libelle'];
-    }
-    $form->addSelect('validation_id', $list3, array(), 'Validation');
-    $form->addText('quantite', array(), 'Quantité');
-    $form->addText('prix', array(), 'Prix');
-//ajouter route
+
+
 function ajouter_route(){
     include(ROOT.'mod_gc/alerteDevis.php');
 }
->>>>>>> 84413cbaa00f252d733956fd1eb027bb70d0bb64
 function listeFacture_route(){
     $utilisateurs=Connexion::table('select login,utilisateurtype_id from utilisateur order by login');
     include(ROOT.'mod_gc/listeFacture.php');
 }
 function listeArchive_route(){
-<<<<<<< HEAD
     $archives=Connexion::table('select * from archiveDevis');
-=======
     $archives=Connexion::table('select id, date from archives');
->>>>>>> 84413cbaa00f252d733956fd1eb027bb70d0bb64
     include(ROOT.'mod_gc/listeArchive.php');
+}
+function infosClient_route(){
+	$infosClient=Connexion::table('select nomClient, prenomClient, adresse, codePostal, ville, organisation_id, mail, numTelephone
+							       from client');
+	include(ROOT.'mod_gc/infosClient.php');
+}			
+function infosEmploye_route(){
+	$infosEmploye=Connexion::table('select nomEmploye, prenomEmploye, dateNaissance, mail, numero, adresse, codePostal, ville, securiteSociale
+									from employe');
+	include(ROOT.'mod_gc/infosEmploye.php');	
+}
+function bonDeCommande_route(){
+	include(ROOT.'mod_gc/BonDeCommandePDF.php');	
 }
