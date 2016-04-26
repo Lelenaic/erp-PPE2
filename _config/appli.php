@@ -1,3 +1,3 @@
 <?php
 
-define('titreApplication','PGI - e0v0');
+define('titreApplication','PGI - e1v0');

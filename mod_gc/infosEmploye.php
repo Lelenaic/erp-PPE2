@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title> <?php echo titreApplication; ?></title>
+        <title><?php echo titreApplication; ?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,6 @@
         <link href="./AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="./AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -85,104 +84,55 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des Clients
+                        Archives
                     </h1>
                 </section>
-
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
                                 <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>adresse</th>
-                                        <th>Code Postal</th>
-                                        <th>Ville</th>
-                                        <th>Mail</th>
+                                     <tr>
+                                        <th>Nom</th><br />                                        
+                                        <th>Prenom</th><br />
+                                        <th>date de Naissance</th><br />
                                         <th>Téléphone</th>
-                                        <th>Entreprise</th>
-                                        <th>Modification</th>
-                                        <th>Suppression</th>
-                                        
+                                        <th>Mail</th>
+                                        <th>ville</th>                                                             
+                                        <th>Code Postal</th>                                                             
+                                        <th>Adresse</th>
                                     </tr>
-                                        
-                                </thead>
-                                <tbody>
+                                     <tbody>
+                                
+<!--
+                                Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client
+                                idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
+-->                                        
                                     <?php
-                                    foreach ($client as $u) {
-                                        echo '<tr>'
-                                            ,'<td>',$u['id'],'</td>'
-                                            ,'<td><a href="index.php?route=gc_gestionComptable_listeFacture&clientId='.$u['id'].'">'.$u['nom'].'</a></td>'
-                                            ,'<td>',$u['prenom'],'</td>'
-                                            ,'<td>',$u['adresse'],'</td>'    
-                                            ,'<td>',$u['codePostal'],'</td>'    
-                                            ,'<td>',$u['ville'],'</td>'    
-                                            ,'<td>',$u['mail'],'</td>'   
-                                            ,'<td>',$u['numTelephone'],'</td>'    
-                                            ,'<td>',$u['libelle'],'</td>'
-                                            ,'<td>','<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#'.$u['id'].'">Modifier</button>','</td>'
-                                            ,'<td>','<a href="index.php?route=client_listeIndex_deleteClient&id='.$u['id'].'"><i class="fa fa-trash fa-3x"></i></a>','</td>'
-                                            ,'</tr>';
+                                    foreach ($infosEmploye as $u) {
+                                        echo '<tr>';
+                                        echo '<td>',$u['nomEmploye'],'</td>';
+                                         echo'<td>',$u['prenomEmploye'],'</td>';
+                                         echo'<td>',$u['dateNaissance'],'</td>';
+                                         echo'<td>',$u['numero'],'</td>';
+                                         echo'<td>',$u['mail'],'</td>';
+                                         echo'<td>',$u['ville'],'</td>';
+                                         echo'<td>',$u['codePostal'],'</td>';
+                                         echo'<td>',$u['adresse'],'</td>';
                                     }
-                                    ?>
-                                </tbody>
-                            </table
+                                     ?>    
+                                </thead>
+                            </table>
+                                </thead>
+                              
+                            <br />
                         </div>
                     </div>
 
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
-        <?php
-        foreach ($client as $u) {
-         // $poste_id=Connexion::table('select libelle from poste where id='.$employe[$i]['poste_id'].'');
-         // $entreprise_id=Connexion::table('select libelle from organisation where id='.$employe[$i]['entreprise_id'].'');
-          echo '<div id="'.$u['id'].'" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modifier Client</h4>
-                </div>
-                <div class="modal-body">';
-                    $nom['value']=$u['nom'];
-                    $prenom['value']=$u['prenom'];
-                    $adresse['value']=$u['adresse'];
-                    $codePostal['value']=$u['codePostal'];
-                    $ville['value']=$u['ville'];
-                    $mail['value']=$u['mail'];
-                    $num['value']=$u['numTelephone'];
-                    $form = new FormBootstrap('Client');
-                    $form->addHidden('route', 'client_listeIndex_validModif');
-                    $form->addHidden('id', $u['id']);
-                    $form->addText('nom',$nom, 'Nom');
-                    $form->addText('prenom',$prenom, 'Prénom');
-                    $form->addText('adresse',$adresse, 'Adresse');
-                    $form->addText('codePostal',$codePostal, 'Code Postal');
-                    $form->addText('ville',$ville, 'Ville');
-                    $form->addEmail('mail', $mail,'Adresse Mail');
-                    $form->addNumeric('numTel',$num,'Numéro de Téléphone');
-                    echo $form->table(); 
-
-          
-          
-      
-                echo '</div>
-               <div class="modal-footer">
-                
-                  <button type="button" class="btn btn-info btn" data-dismiss="modal">Fermer</button>
-                </div>
-              </div>
-            </div>
-          </div>';
-        }
-?>
-
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
@@ -204,17 +154,13 @@
         <script src="./AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
         <!-- iCheck -->
         <script src="./AdminLTE/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-
         <!-- DATA TABES SCRIPT -->
         <script src="./AdminLTE/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="./AdminLTE/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-
         <!-- AdminLTE App -->
         <script src="./AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
-
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <!-- <script src="./AdminLTE/js/AdminLTE/dashboard.js" type="text/javascript"></script> -->
-
         <!-- AdminLTE for demo purposes -->
         <script src="./AdminLTE/js/AdminLTE/demo.js" type="text/javascript"></script>
         <script type="text/javascript">

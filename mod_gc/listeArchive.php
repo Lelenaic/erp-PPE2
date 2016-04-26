@@ -101,35 +101,35 @@
                                         <th>date</th> 
                                     </tr>
                                <tbody>
-                                    <?php
-                                    foreach ($archives as $u) {
-                                        echo '<tr>'
-                                            ,'<td>',$u['id'],'</td>'
-                                            ,'<td>',$u['date'],'</td>'
-                                            ,'</tr>';
-                                    }
-                                    ?>
-                                </tbody>
-                                    <tr>
-                                        <th>nom client</th>                                        
-                                        <th>prenom client</th>                                        
-                                        <th>adresse client</th>                                        
-                                        <th>code postal client</th>                                        
-                                        <th>ville client</th>                                        
-                                        <th>entreprise client</th>                                        
-                                        <th>mail client</th>                                        
-                                        <th>numtelephone client</th>
-                                    </tr>
+                                    // code qui créer le tableau de l’archive
+<tr>
+                                       <th>date</th><br />                                       
+                                       <th>nom client</th><br />
+                                       <th>nom employé</th><br />
+                                       <th>produits commandé</th>
+                                       <th>quantité</th>
+                                       <th>prix unitaire</th>                                                            
+                                       <th>prix total</th>
+                                   </tr>
+                                    <tbody>
+                              
 <!--
-                                    <tr>
-                                        <th>libelle</th>
-                                        <th>numero</th>
-                                        <th>mail</th>
-                                        <th>ville</th>                                        
-                                        <th>code postal</th>
-                                        <th>adresse</th>
-                                    </tr>
+                               Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client
+                               idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
 -->
+                                      
+                                   <?php
+                                   foreach ($archives as $u) {
+                                       echo '<tr>';
+                                       echo '<td>',$u['date'],'</td>';
+                                         echo'<td><a href="infosClient.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
+                                         echo'<td><a href="infosEmploye.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
+                                         echo'<td>',$u['libelle'],'</td>';
+                                         echo'<td>',$u['quantité'],'</td>';
+                                         echo'<td><b>',$u['montant'],'</b></td>';
+                                   }
+                                     ?>
+
                                 </thead>
                             </table>
 
