@@ -1,6 +1,6 @@
 <?php
  function formulaire($tableAjout, $erreur=false){
-     // Iitilaisation du formulaire
+     // Initilaisation du formulaire
     $form = new FormBootstrap('Client');
     $form->addHidden('route', 'client_ajoutIndex_valid');
     
