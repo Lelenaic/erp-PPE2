@@ -167,7 +167,7 @@
                     $form->addText('ville',$ville, 'Ville');
                     $form->addEmail('mail', $mail,'Adresse Mail');
                     $form->addNumeric('numTel',$num,'Numéro de Téléphone');
-                    echo $form->table(); 
+                    echo $form->table();
 
           
           

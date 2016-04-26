@@ -13,10 +13,9 @@
         }
     }
     $form->addHidden('rappel', 'true');
-    //var_dump($tableAjout);
     if($erreur)
     {
-        //Formulaire d'enregistrement d'un client si l'utilisateur n'a pas remplis tous les champs.   
+        //Formulaire d'enregistrement d'un client si l'utilisateur n'a pas remplis tous les champs.
         $form->addText('nom', array($tableAjout[0]), 'Nom');
         $form->addText('prenom',array($tableAjout[1]), 'Prénom');
         $form->addText('adresse',array($tableAjout[2]), 'Adresse');
