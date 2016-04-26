@@ -94,6 +94,7 @@ class Form {
         $attributs['class'].=' mws-textinput';
         return $this->addElement(new FormElement('input', $attributs, $label, $tooltip));
     }
+    
 
     public function __set($key, $value) {
         return $this->addHidden($key, $value);
