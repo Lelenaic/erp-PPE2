@@ -97,18 +97,18 @@
                                 <center>
                                 Vers la liste des prospects : <br/>
                                     <a href="index.php?route=prospect_listeIndex_index"><i class="fa fa-arrow-circle-left fa-4x"></i></a><br/></center>
-                            </td></tr>
-                            <tr><td>
+                            </td>
+                            <td>
                                  <center>Vers l'ajout d'un prospect : <br/>
                                 <a href="index.php?route=prospect_ajoutIndex_index"><i class="fa fa-plus-square fa-4x"></i></a><br/></center>
-                            </td></tr>
-                            <tr><td>
+                            </td>
+                            <td>
                                 <center>Vers la liste des clients : <br/>
                                 <a href="index.php?route=client_listeIndex_index"><i class="fa fa-arrow-circle-right fa-4x"></i></a><br/></center>
-                            </td></tr>
-                            <tr><td>
+                            </td>
+                            <td>
                                 <center>Vers l'ajout d'un client : <br/>
-                                    <a href="index.php?route=client_ajoutIndex_index"><i class="fa fa-plus-square fa-4x"></i></a><br/></center>
+                                    <a help="Vers l'ajout d'un client "  href="index.php?route=client_ajoutIndex_index"><i class="fa fa-plus-square fa-4x"></i></a><br/></center>
                             </td></tr>        
                         </table>
                </center>
@@ -153,9 +153,4 @@
         <script src="./AdminLTE/js/AdminLTE/demo.js" type="text/javascript"></script>
 
     </body>
-<<<<<<< HEAD
-</html>
-</html>
-=======
->>>>>>> origin/Equipe6_V5
 </html>
