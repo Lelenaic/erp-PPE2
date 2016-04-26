@@ -5,7 +5,7 @@ function authentification_route() {
     $password = $_POST['password'];
     $query = 'select * from utilisateur where login = "' . $login . '"';
     $utilisateur = Connexion::queryFirst($query);
-    if ($utilisateur['password'] == $password) {
+    if (password_verify($password,$utilisateur['password']) == true) {
         unset($utilisateur['password']);    //on supprime la case password pour ajouter utilisateur en session
         $_SESSION['utilisateur'] = $utilisateur;
     } else {
@@ -53,7 +53,7 @@ function formAjouter_route(){
     foreach ($utilisateurtype as $ut){
         $list[$ut['id']]=$ut['label'];
     }
-    $form->addSelect('utilisateurtype_id', $list, array(), 'Type');
+    $form->addSelect('utilisateurtype_id', $list, array(), 'Secteur');
     // Insert le fichier de gestion des formulaires défini dans le modèle Boostrap
     include(ROOT.'AdminLTE/form.php');
 }
@@ -69,9 +69,10 @@ function ajouter_route(){
         }else{
             $password=$_POST['password1'];
             $utilisateurtype_id=$_POST['utilisateurtype_id'];
-            $query='insert into utilisateur(login,password,utilisateurtype_id) values("'.$login.'","'.$password.'","'.$utilisateurtype_id.'")';
+            $query='insert into utilisateur(login,password,utilisateurtype_id) values("'.$login.'","'.password_hash($password, PASSWORD_DEFAULT).'","'.$utilisateurtype_id.'")';
             Connexion::exec($query);
-            $_SESSION['messages']='Utilisateur enregistré';
+            var_dump($_POST);
+            $_SESSION['messages']='L\'utilisateur n\'a pas été enregistré [non disponible]';
             header('Location:.?route=kernel_utilisateur_liste');
         }
     }else{

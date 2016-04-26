@@ -47,7 +47,7 @@
                     <button type="submit" class="btn bg-olive btn-block">Sign me in</button>
                 </div>
             </form>
-
+            <p><?php echo password_hash("admin", PASSWORD_DEFAULT); ?></p>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
