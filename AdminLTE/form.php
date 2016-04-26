@@ -98,6 +98,17 @@
                     <!-- Main row -->
                     <div class="row">
                         <?php
+                        if (isset($_POST['rappel']))
+                        {
+                        ?>
+
+                            <div class="alert alert-danger alert-dismissable">
+                                <i class="fa fa-ban"></i>
+                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                <b>Attention!</b> <?php echo 'Tous les champs ne sont pas remplis'; ?>.
+                            </div>
+                        <?php
+                        }
                         if (isset($_SESSION['messages'])) {
                             ?>
                             <div class="alert alert-danger alert-dismissable">
@@ -108,6 +119,8 @@
                             <?php
                             unset($_SESSION['messages']);
                         }
+                        //si tous les champs sont remplis
+
                         ?>
 
                         <div class="col-lg-6">

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +22,7 @@
         <link href="./AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -76,7 +74,7 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <ul class="sidebar-menu">
-                        <?php include(ROOT.'mod_kernel/utilisateur.php'); echo menuUtilisateur(); ?>
+                        <?php echo menuUtilisateur(); ?>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -98,7 +96,49 @@
                 <!-- Main content -->
                 <section class="content">
                     <!-- Main row -->
-                    <?php echo timeline(); ?>
+                    <div class="row">
+                        <?php
+                        if (isset($_POST['rappel']))
+                        {
+                        ?>
+
+                            <div class="alert alert-danger alert-dismissable">
+                                <i class="fa fa-ban"></i>
+                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                <b>Attention!</b> <?php echo 'Tous les champs ne sont pas remplis'; ?>.
+                            </div>
+                        <?php
+                        }
+                        if (isset($_SESSION['messages'])) {
+                            ?>
+                            <div class="alert alert-danger alert-dismissable">
+                                <i class="fa fa-ban"></i>
+                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                <b>Alert!</b> <?php echo $_SESSION['messages']; ?>.
+                            </div>
+                            <?php
+                            unset($_SESSION['messages']);
+                        }
+                        //si tous les champs sont remplis
+
+                        ?>
+
+
+                        <div class="col-lg-6">
+                            <?php echo $form->table(); ?>
+                        </div>
+                        
+                        <div style="text-align:right">
+                            
+                        Vers la liste des prospects : 
+                            <a href="index.php?route=prospect_listeIndex_index"><i class="fa fa-arrow-circle-left fa-4x"></i></a><br/>
+                        Vers l'ajout d'un prospect : 
+                            <a href="index.php?route=prospect_ajoutIndex_index"><i class="fa fa-plus-square fa-4x"></i></a><br/>
+                        Vers la liste des clients : 
+                            <a href="index.php?route=client_listeIndex_index"><i class="fa fa-arrow-circle-right fa-4x"></i></a><br/>
+
+                            </div>
+                    <!-- /.row (main row) -->
 
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
@@ -140,5 +180,3 @@
 
     </body>
 </html>
-
-
