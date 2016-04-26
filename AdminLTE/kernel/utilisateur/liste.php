@@ -1,4 +1,18 @@
-l<!DOCTYPE html>
+<?php
+function liste($liste,$nom,$table){
+    $deroulant='<select name="'.$nom.'">';
+    $taille=sizeof($liste);
+    for($i=0;$i<$taille;$i++){
+        //mettre un selected si c'est l'attribut de l'utilisateur
+        $deroulant.='<option value="'.$liste[$i][$table].'">'.$liste[$i][$table].'</option>';   
+    }
+    $deroulant.='</select>';
+    return($deroulant);
+}
+?>
+
+
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -93,65 +107,68 @@ l<!DOCTYPE html>
                 <section class="content">
                     <div class="row">
                         <div class="col-xs-12">
-                            <form method="POST" action="?route=kernel_utilisateur_liste">
-                                <table id="example2" class="table table-bordered table-hover datatable">
-                                    <thead>
-                                        <tr>
-                                            <th>login</th>
-                                            <th>mot de passe</th>
-                                            <th>secteur</th>
-                                            <th>entreprise</th>
-                                            <th>modification</th>
-                                            <th>supression</th>
-                                        </tr>
+                            <table id="example2" class="table table-bordered table-hover datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Login</th>
+                                        <th>Mot de passe</th>
+                                        <th>Secteur</th>
+                                        <th>Entreprise</th>
+                                        <th>Modification</th>
+                                        <th>Supression</th>
+                                    </tr>
 
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        if(isset($_POST['modifier'])){
-                                            var_dump($_POST['entreprise']);
-                                            foreach ($utilisateurs as $u) {
-                                                if($_SESSION['utilisateur']['login']==$u['login']){
-                                                    echo '<tr>'
-                                                        ,'<td><input type="text" value="'.$u['login'].'"/></td>'
-                                                        ,'<td><input type="text" value=""/></td>'
-                                                        ,'<td><input type="text" value="'.$u['secteur'].'"/></td>'
-                                                        ,'<td><input type="text" value="'.$u['entreprise'].'"/></td>'
-                                                           , '<td><input type="hidden" name="login" value="'.$u['login'].'"/><input type="hidden" name="secteur" value="'.$u['secteur'].'"/><input type="hidden" name="entreprise" value="'.$u['entreprise'].'"/><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Modifier </button></td>'
-                                                           ,'<td><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Annuler </button></td>'
-                                                        ,'</tr>';
-                                                }else{
-                                                    echo '<tr>'
-                                                        ,'<td>',$u['login'],'</td>'
-                                                        ,'<td>•••••</td>'
-                                                        ,'<td>',$u['secteur'],'</td>'
-                                                        ,'<td>',$u['entreprise'],'</td>'
-                                                           , '<td><input type="hidden" name="login" value="'.$u['login'].'"/><input type="hidden" name="secteur" value="'.$u['secteur'].'"/><input type="hidden" name="entreprise" value="'.$u['entreprise'].'"/><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Modifier </button></td>'
-                                                           ,'<td></td>'
-                                                        ,'</tr>';
-                                                }
-                                                
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    echo '<div id="myModal" class="modal fade" role="dialog">
+                                      <div class="modal-dialog">
+                                      
+                                      </div>
+                                    </div>';
+                                    if(isset($_POST['modifier'])){
+                                        $listeEntreprise=Connexion::table('SELECT organisation.libelle FROM organisation');
+                                        $listeSecteur=Connexion::table('SELECT utilisateurtype.label FROM utilisateurtype');
+                                        //var_dump($listeEntreprise);
+                                        //var_dump($_POST['entreprise']);
+                                        foreach ($utilisateurs as $u) {
+                                            /*echo '$post';
+                                            var_dump($_POST['login']);
+                                            echo '$u';
+                                            var_dump($u['login']);
+                                            echo 'fin';*/
+                                            if($_POST['login']==$u['login']){
+                                                echo '<form method="POST" action="?route=kernel_utilisateur_liste"><tr>'
+                                                    .'<td><input type="text" value="'.$u['login'].'"/></td>'
+                                                    .'<td><input type="text" value=""/></td>'
+                                                    .'<td>'.liste($listeSecteur,"secteur","label").'</td>'
+                                                    .'<td>'.liste($listeEntreprise,"entreprise","libelle").'</td>'
+                                                    .'<td><input type="hidden" name="login" value="'.$u['login'].'"/><input type="hidden" name="secteur" value="'.$u['secteur'].'"/><input type="hidden" name="entreprise" value="'.$u['entreprise'].'"/><button type="submit" name="valider" class="btn btn-app"><i class="fa fa-check"></i> Valider</button></td>'
+                                                    .'<td><button type="submit" name="annuler" class="btn btn-app"><i class="fa fa-check"></i> Annuler </button></td>'
+                                                    .'</tr></form>';
                                             }
-                                            
-                                                }else{
-                                                foreach ($utilisateurs as $u) {
-                                               
-                                                    echo '<tr>'
-                                                        ,'<td>',$u['login'],'</td>'
-                                                        ,'<td>•••••</td>'
-                                                        ,'<td>',$u['secteur'],'</td>'
-                                                        ,'<td>',$u['entreprise'],'</td>'
-                                                           , '<td><input type="hidden" name="login" value="'.$u['login'].'"/><input type="hidden" name="secteur" value="'.$u['secteur'].'"/><input type="hidden" name="entreprise" value="'.$u['entreprise'].'"/><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Modifier </button></td>'
-                                                           ,'<td></td>'
-                                                        ,'</tr>';
-                                               
-                                                
-                                            }
+
                                         }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </form>
+
+                                            }else{
+                                            foreach ($utilisateurs as $u) {
+                                                /*echo '$u';
+                                                var_dump($u['login']);*/
+                                                echo '<form method="POST" action="?route=kernel_utilisateur_liste"><tr>'
+                                                    .'<td>'.$u['login'].'</td>'
+                                                    .'<td>•••••</td>'
+                                                    .'<td>'.$u['secteur'].'</td>'
+                                                    .'<td>'.$u['entreprise'].'</td>'
+                                                    .'<td><input type="hidden" name="login" value="'.$u['login'].'"/><input type="hidden" name="secteur" value="'.$u['secteur'].'"/><input type="hidden" name="entreprise" value="'.$u['entreprise'].'"/><button type="submit" name="modifier" class="btn btn-app"><i class="fa fa-check"></i> Modifier </button></td>'
+                                                    .'<td><button type="submit" name="supprimer" class="btn btn-app"><i class="fa fa-check"></i> Supprimer </button></td>'
+                                                    .'</tr></form>';
+                                                
+                                        }
+                                    }
+                                    echo '';
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
