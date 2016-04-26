@@ -131,7 +131,10 @@
                                     ?>
                                 </tbody>
                             </table>
-                            <a href="index.php?route=prospect_listeIndex_index"><i class="fa fa-paw fa-3x"></i></a>
+                            Vers la liste des prospects : <br/>
+                            <a href="index.php?route=prospect_listeIndex_index"><i class="fa fa-arrow-circle-left fa-4x"></i></a><br/>
+                            Vers l'ajout d'un client : <br/>
+                            <a href="index.php?route=client_ajoutIndex_index"><i class="fa fa-plus-square fa-4x"></i></a><br/>
                         </div>
                     </div>
 
@@ -167,7 +170,7 @@
                     $form->addText('ville',$ville, 'Ville');
                     $form->addEmail('mail', $mail,'Adresse Mail');
                     $form->addNumeric('numTel',$num,'Numéro de Téléphone');
-                    echo $form->table();
+                    echo $form->table(); 
 
           
           
