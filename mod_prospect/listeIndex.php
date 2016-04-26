@@ -19,6 +19,8 @@ function index_route()
                  .' ORDER BY nom';
     }
    $prospect=Connexion::table($requete);
+function index_route(){
+   $prospect=Connexion::table("SELECT prospect.id,nom,prenom,prospect.adresse,prospect.codePostal,prospect.ville,prospect.mail,prospect.numTelephone,organisation.libelle FROM `prospect`, organisation Where prospect.entreprise_id=organisation.id order by nom");
     include(ROOT.'AdminLTE/prospect/liste.php');
 }
 
