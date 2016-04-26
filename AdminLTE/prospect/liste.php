@@ -131,7 +131,10 @@
                                     ?>
                                 </tbody>
                             </table>
-                            <a href="index.php?route=client_listeIndex_index"><i class="fa fa-paw fa-3x"></i></a>
+                        Vers la liste des clients : <br/>
+                            <a href="index.php?route=client_listeIndex_index"><i class="fa fa-arrow-circle-left fa-4x"></i></a><br/>
+                        Vers l'ajout d'un prospect : <br/>
+                            <a href="index.php?route=prospect_ajoutIndex_index"><i class="fa fa-plus-square fa-4x"></i></a><br/>
 
                         </div>
                     </div>
