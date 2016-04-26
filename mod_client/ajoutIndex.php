@@ -47,9 +47,8 @@
         $form->addSelect('organisation', $list, array(), 'Organisation');
     }
     // Appel du formulaire dans la page HTML (construction de la balise <form>)
-     include(ROOT.'AdminLTE/form.php');
+     include(ROOT.'AdminLTE/formClientele.php');
 }
-
  
  
 // Fichier d'arrivé par défaut pour s'identifier d'authentification
@@ -57,7 +56,6 @@ function index_route($nom="", $prenom="", $adresse="", $codePostal="", $ville=""
 {
     formulaire([]);
 }
-
 function valid_route()
 {
     //Récupération du formulaire.
@@ -97,4 +95,3 @@ function valid_route()
         formulaire($tableAjout, true);
     }
 }
- 
