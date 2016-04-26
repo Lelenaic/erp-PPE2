@@ -71,7 +71,7 @@
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
-                <!-- sidebar: style can be found in sidebar.less -->
+                <!-- sidebar: style can be found in sidebar.less -->l
                 <section class="sidebar">
                     <ul class="sidebar-menu">
                         <?php echo menuUtilisateur(); ?>
@@ -85,7 +85,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Liste des utilisateurs
+                        Archives
                     </h1>
                 </section>
 
@@ -94,45 +94,39 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <table id="example2" class="table table-bordered table-hover datatable">
-                                <thead>
-                                    
-                                    <tr>
-                                        <th>id archives</th>
-                                        <th>date</th> 
-                                    </tr>
-                               <tbody>
-                                    // code qui créer le tableau de l’archive
-<tr>
-                                       <th>date</th><br />                                       
-                                       <th>nom client</th><br />
-                                       <th>nom employé</th><br />
-                                       <th>produits commandé</th>
-                                       <th>quantité</th>
-                                       <th>prix unitaire</th>                                                            
-                                       <th>prix total</th>
-                                   </tr>
-                                    <tbody>
-                              
+                                    <thead>
+                                     <tr>
+                                        <th>date</th><br />                                        
+                                        <th>nom client</th><br />
+                                        <th>nom employé</th><br />
+                                        <th>produits commandé</th>
+                                        <th>quantité</th>
+                                        <th>prix unitaire</th>                                                             
+                                        <th>prix total</th>
+                                     </tr>
+                                   </thead>
+                                     <tbody>
+                                
 <!--
-                               Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client
-                               idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
+                                Création du tableau de l'archive avec les noms et prenoms des clients mis ensemble en lien pour ensuite donner toutes les informations relatives au client
+                                idem pour les employés. Il y a ensuite les informations sur la commande passé telles que le noms des produits commandé ainsi que leurs prix et la quantité commandé.
 -->
-                                      
-                                   <?php
-                                   foreach ($archives as $u) {
-                                       echo '<tr>';
-                                       echo '<td>',$u['date'],'</td>';
+                                        
+                                    <?php
+                                    foreach ($archives as $u) {
+                                        echo '<tr>';
+                                        echo '<td>',$u['date'],'</td>';
                                          echo'<td><a href="infosClient.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
                                          echo'<td><a href="infosEmploye.php?nom='.$u['nom'],$u['prenom'].'</a></td>';
                                          echo'<td>',$u['libelle'],'</td>';
                                          echo'<td>',$u['quantité'],'</td>';
                                          echo'<td><b>',$u['montant'],'</b></td>';
-                                   }
-                                     ?>
-
-                                </thead>
+                                    }
+                                     ?>    
+                                    </tbody>
                             </table>
-
+                              
+                            <br />
                         </div>
                     </div>
 
