@@ -120,8 +120,8 @@
                                         $entreprise_id=Connexion::table('select libelle from organisation where id='.$employe[$i]['entreprise_id'].'');
                                         echo '<tr>'
                                             ,'<td>',$employe[$i]['id'],'</td>'
-                                            ,'<td>',$employe[$i]['nom'],'</td>'
-                                            ,'<td>',$employe[$i]['prenom'],'</td>'
+                                            ,'<td>',$employe[$i]['nomEmploye'],'</td>'
+                                            ,'<td>',$employe[$i]['prenomEmploye'],'</td>'
                                             ,'<td>',$employe[$i]['dateNaissance'],'</td>'
                                             ,'<td>',$poste_id[0]['libelle'],'</td>'
                                             ,'<td>',$employe[$i]['numero'],'</td>'
@@ -162,17 +162,18 @@
                   $form->addHidden('route','grh_employe_modifier');
                   $form->addHidden('id',$employe[$i]['id']);
                   $id['value']=$employe[$i]['id'];
-                  $nom['value']=$employe[$i]['nom'];
-                  $prenom['value']=$employe[$i]['prenom'];
+                  $table=Connexion::table('Select * From employe where id = '.$employe[$i]['id'].'');
+                  $nom['value']=$employe[$i]['nomEmploye'];
+                  $prenom['value']=$employe[$i]['prenomEmploye'];
                   $dateNaissance['value']=$employe[$i]['dateNaissance'];
-                  $libelleP['value']=$poste_id[0]['libelle'];
+                  $libelleP['value']=$employe[$i]['poste_id'];
                   $numero['value']=$employe[$i]['numero'];
                   $mail['value']=$employe[$i]['mail'];
                   $ville['value']=$employe[$i]['ville'];
                   $codePostal['value']=$employe[$i]['codePostal'];
                   $adresse['value']=$employe[$i]['adresse'];
                   $securiteSociale['value']=$employe[$i]['securiteSociale'];
-                  $libelleE['value']=$entreprise_id[0]['libelle'];
+                  $libelleE['value']=$employe[$i]['entreprise_id'];
                   $form->addText('nom', $nom , 'Nom');
                   $form->addText('prenom', $prenom, 'Prénom');
                   $form->addDate('dateNaissance', $dateNaissance, 'Date de naissance');
@@ -182,8 +183,7 @@
                   {
                       $list[$p['id']]=$p['libelle'];
                   }
-                  var_dump($list);
-                  $form->addSelect('poste', $list, array() , 'poste');
+                  $form->addSelect('poste', $list , $libelleP , 'poste');
                   $form->addText('numero', $numero, 'Numéro de télephone');
                   $form->addText('mail', $mail, 'E-mail');
                   $form->addText('ville', $ville, 'Ville');
@@ -196,7 +196,7 @@
                   {
                       $list[$e['id']]=$e['libelle'];
                   }
-                  $form->addSelect('organisation', $list , $list, 'organisation');
+                  $form->addSelect('organisation', $list , $libelleE , 'organisation');
                   $list=array();
                 echo $form->table();
                 echo '</div>
